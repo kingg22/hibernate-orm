@@ -6,7 +6,6 @@ package org.hibernate.processor.annotation;
 
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.hibernate.processor.Context;
 import org.hibernate.processor.model.MetaAttribute;
 import org.hibernate.processor.model.Metamodel;
@@ -15,6 +14,7 @@ import org.hibernate.processor.validation.ProcessorSessionFactory;
 import org.hibernate.processor.validation.Validation;
 import org.hibernate.query.sqm.tree.SqmStatement;
 import org.hibernate.query.sqm.tree.select.SqmSelectStatement;
+import org.jspecify.annotations.Nullable;
 
 import javax.lang.model.element.AnnotationMirror;
 import javax.lang.model.element.AnnotationValue;
@@ -22,15 +22,16 @@ import javax.lang.model.element.Element;
 import java.util.List;
 
 import static java.lang.Character.isJavaIdentifierStart;
+import static java.util.Objects.requireNonNull;
 import static org.hibernate.processor.util.Constants.ENTITY_GRAPH;
 import static org.hibernate.processor.util.Constants.HIB_ENABLED_FETCH_PROFILE;
 import static org.hibernate.processor.util.Constants.JAVA_OBJECT;
 import static org.hibernate.processor.util.Constants.NAMED_QUERY;
 import static org.hibernate.processor.util.Constants.TYPED_QUERY_REFERENCE;
+import static org.hibernate.processor.util.SqmTypeUtils.resultType;
 import static org.hibernate.processor.util.TypeUtils.containsAnnotation;
 import static org.hibernate.processor.util.TypeUtils.getAnnotationMirror;
 import static org.hibernate.processor.util.TypeUtils.getAnnotationValue;
-import static org.hibernate.processor.util.SqmTypeUtils.resultType;
 
 public abstract class AnnotationMeta implements Metamodel {
 
@@ -56,7 +57,7 @@ public abstract class AnnotationMeta implements Metamodel {
 
 	void checkNamedQueries() {
 		boolean checkHql = containsAnnotation( getElement(), Constants.CHECK_HQL )
-						|| containsAnnotation( getElement().getEnclosingElement(), Constants.CHECK_HQL );
+						|| containsAnnotation( requireNonNull( getElement().getEnclosingElement() ), Constants.CHECK_HQL );
 		handleNamedQueryAnnotation( NAMED_QUERY, checkHql );
 		handleNamedQueryRepeatableAnnotation( Constants.NAMED_QUERIES, checkHql );
 		handleNamedQueryAnnotation( Constants.HIB_NAMED_QUERY, checkHql );
@@ -129,11 +130,9 @@ public abstract class AnnotationMeta implements Metamodel {
 					}
 					if ( getAnnotationValue( mirror, "resultClass" ) == null ) {
 						final String resultType = resultType( selectStatement );
-						if ( resultType != null ) {
-							putMember( "QUERY_" + name,
-									new TypedMetaAttribute( this, name, "QUERY_", resultType,
-											TYPED_QUERY_REFERENCE, hql ) );
-						}
+						putMember( "QUERY_" + name,
+								new TypedMetaAttribute( this, name, "QUERY_", resultType,
+										TYPED_QUERY_REFERENCE, hql ) );
 					}
 				}
 			}

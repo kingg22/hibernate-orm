@@ -4,18 +4,7 @@
  */
 package org.hibernate.processor.xml;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.lang.model.element.AnnotationMirror;
-import javax.lang.model.element.Element;
-import javax.lang.model.element.ElementKind;
-import javax.lang.model.element.ExecutableElement;
-import javax.lang.model.element.TypeElement;
-import javax.lang.model.type.DeclaredType;
-import javax.lang.model.type.ExecutableType;
-import javax.lang.model.type.TypeMirror;
-import javax.tools.Diagnostic;
-
+import jakarta.persistence.AccessType;
 import org.hibernate.boot.jaxb.mapping.spi.JaxbAttributesContainerImpl;
 import org.hibernate.boot.jaxb.mapping.spi.JaxbBasicImpl;
 import org.hibernate.boot.jaxb.mapping.spi.JaxbElementCollectionImpl;
@@ -31,23 +20,35 @@ import org.hibernate.boot.jaxb.mapping.spi.JaxbMapKeyClassImpl;
 import org.hibernate.boot.jaxb.mapping.spi.JaxbMappedSuperclassImpl;
 import org.hibernate.boot.jaxb.mapping.spi.JaxbOneToManyImpl;
 import org.hibernate.boot.jaxb.mapping.spi.JaxbOneToOneImpl;
+import org.hibernate.processor.Context;
 import org.hibernate.processor.ImportContextImpl;
 import org.hibernate.processor.MetaModelGenerationException;
 import org.hibernate.processor.model.ImportContext;
 import org.hibernate.processor.model.MetaAttribute;
 import org.hibernate.processor.model.Metamodel;
 import org.hibernate.processor.util.AccessTypeInformation;
-import org.hibernate.processor.Context;
 import org.hibernate.processor.util.Constants;
 import org.hibernate.processor.util.NullnessUtil;
 import org.hibernate.processor.util.StringUtil;
 import org.hibernate.processor.util.TypeUtils;
+import org.jspecify.annotations.Nullable;
 
-import jakarta.persistence.AccessType;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import javax.lang.model.element.AnnotationMirror;
+import javax.lang.model.element.Element;
+import javax.lang.model.element.ElementKind;
+import javax.lang.model.element.ExecutableElement;
+import javax.lang.model.element.TypeElement;
+import javax.lang.model.type.DeclaredType;
+import javax.lang.model.type.ExecutableType;
+import javax.lang.model.type.TypeMirror;
+import javax.tools.Diagnostic;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import static jakarta.persistence.AccessType.FIELD;
 import static java.util.Collections.emptyList;
+import static java.util.Objects.requireNonNull;
 import static org.hibernate.processor.util.StringUtil.classNameFromFullyQualifiedName;
 import static org.hibernate.processor.util.StringUtil.determineFullyQualifiedClassName;
 import static org.hibernate.processor.util.StringUtil.isFullyQualified;
@@ -74,7 +75,7 @@ public class XmlMetaEntity implements Metamodel {
 
 	private @Nullable JaxbAttributesContainerImpl attributes;
 	private @Nullable JaxbEmbeddableAttributesContainerImpl embeddableAttributes;
-	private AccessTypeInformation accessTypeInfo;
+	private @Nullable AccessTypeInformation accessTypeInfo;
 
 	/**
 	 * Whether the members of this type have already been initialized or not.
@@ -90,13 +91,19 @@ public class XmlMetaEntity implements Metamodel {
 	private boolean initialized;
 
 	XmlMetaEntity(JaxbEntityImpl ormEntity, String defaultPackageName, TypeElement element, Context context) {
-		this( ormEntity.getClazz(), defaultPackageName, element, context, ormEntity.isMetadataComplete() );
+		this(
+				requireNonNull( ormEntity.getClazz() ),
+				defaultPackageName,
+				element,
+				context,
+				ormEntity.isMetadataComplete()
+		);
 		this.attributes = ormEntity.getAttributes();
 		this.embeddableAttributes = null;
 	}
 
 	static XmlMetaEntity create(JaxbEntityImpl ormEntity, String defaultPackageName, TypeElement element, Context context) {
-		XmlMetaEntity entity = new XmlMetaEntity( ormEntity, defaultPackageName, element, context );
+		final XmlMetaEntity entity = new XmlMetaEntity( ormEntity, defaultPackageName, element, context );
 		// entities can be directly initialised
 		entity.init();
 		return entity;
@@ -104,7 +111,7 @@ public class XmlMetaEntity implements Metamodel {
 
 	XmlMetaEntity(JaxbMappedSuperclassImpl mappedSuperclass, String defaultPackageName, TypeElement element, Context context) {
 		this(
-				mappedSuperclass.getClazz(),
+				requireNonNull( mappedSuperclass.getClazz() ),
 				defaultPackageName,
 				element,
 				context,
@@ -115,12 +122,18 @@ public class XmlMetaEntity implements Metamodel {
 	}
 
 	XmlMetaEntity(JaxbEmbeddableImpl embeddable, String defaultPackageName, TypeElement element, Context context) {
-		this( embeddable.getClazz(), defaultPackageName, element, context, embeddable.isMetadataComplete() );
+		this(
+				requireNonNull( embeddable.getClazz() ),
+				defaultPackageName,
+				element,
+				context,
+				embeddable.isMetadataComplete()
+		);
 		this.attributes = null;
 		this.embeddableAttributes = embeddable.getAttributes();
 	}
 
-	private XmlMetaEntity(String clazz, String defaultPackageName, TypeElement element, Context context, Boolean metaComplete) {
+	private XmlMetaEntity(String clazz, String defaultPackageName, TypeElement element, Context context, @Nullable Boolean metaComplete) {
 		this.defaultPackageName = defaultPackageName;
 		String className = clazz;
 		String pkg = defaultPackageName;
@@ -210,12 +223,15 @@ public class XmlMetaEntity implements Metamodel {
 		return sb.toString();
 	}
 
-	private static boolean initIsMetaComplete(Context context, Boolean metadataComplete) {
+	private static boolean initIsMetaComplete(Context context, @Nullable Boolean metadataComplete) {
 		return context.isFullyXmlConfigured() || Boolean.TRUE.equals( metadataComplete );
 	}
 
-	private @Nullable String @Nullable[] getCollectionTypes(String propertyName, String explicitTargetEntity, @Nullable String explicitMapKeyClass, ElementKind expectedElementKind) {
-		for ( Element elem : element.getEnclosedElements() ) {
+	private @Nullable String @Nullable[] getCollectionTypes(final String propertyName,
+															final @Nullable String explicitTargetEntity,
+															final @Nullable String explicitMapKeyClass,
+															final ElementKind expectedElementKind) {
+		for ( final Element elem : element.getEnclosedElements() ) {
 			if ( !expectedElementKind.equals( elem.getKind() ) ) {
 				continue;
 			}
@@ -242,16 +258,17 @@ public class XmlMetaEntity implements Metamodel {
 		if ( elem.asType() instanceof DeclaredType ) {
 			type = ( (DeclaredType) elem.asType() );
 		}
-		else if ( elem.asType() instanceof ExecutableType ) {
-			ExecutableType executableType = (ExecutableType) elem.asType();
-			if ( executableType.getReturnType() instanceof DeclaredType ) {
-				type = (DeclaredType) executableType.getReturnType();
-			}
+		else if ( elem.asType() instanceof ExecutableType executableType &&
+				executableType.getReturnType() instanceof DeclaredType declaredType) {
+			type = declaredType;
 		}
 		return type;
 	}
 
-	private @Nullable String[] determineTypes(String propertyName, String explicitTargetEntity, @Nullable String explicitMapKeyClass, DeclaredType type) {
+	private @Nullable String[] determineTypes(String propertyName,
+											@Nullable String explicitTargetEntity,
+											@Nullable String explicitMapKeyClass,
+											DeclaredType type) {
 		@Nullable String[] types = new String[3];
 		determineTargetType( type, propertyName, explicitTargetEntity, types );
 		if ( determineCollectionType( type, types ).equals( Constants.MAP_ATTRIBUTE ) ) {
@@ -261,31 +278,22 @@ public class XmlMetaEntity implements Metamodel {
 	}
 
 	private void determineMapType(DeclaredType type, @Nullable String explicitMapKeyClass, @Nullable String[] types) {
-		if ( explicitMapKeyClass != null ) {
-			types[2] = explicitMapKeyClass;
-		}
-		else {
-			types[2] = TypeUtils.getKeyType( type, context );
-		}
+		types[2] = Objects.requireNonNullElseGet( explicitMapKeyClass, () -> TypeUtils.getKeyType( type, context ) );
 	}
 
 	private String determineCollectionType(DeclaredType type, @Nullable String[] types) {
 		return NullnessUtil.castNonNull( types[1] = Constants.COLLECTIONS.get( type.asElement().toString() ) );
 	}
 
-	private void determineTargetType(DeclaredType type, String propertyName, String explicitTargetEntity, @Nullable String[] types) {
+	private void determineTargetType(DeclaredType type, String propertyName, @Nullable String explicitTargetEntity, @Nullable String[] types) {
 		List<? extends TypeMirror> typeArguments = type.getTypeArguments();
 
 		if ( typeArguments.isEmpty() && explicitTargetEntity == null ) {
 			throw new MetaModelGenerationException( "Unable to determine target entity type for " + clazzName + "." + propertyName + "." );
 		}
 
-		if ( explicitTargetEntity == null ) {
-			types[0] = extractClosestRealTypeAsString( typeArguments.get( 0 ), context );
-		}
-		else {
-			types[0] = explicitTargetEntity;
-		}
+		types[0] = Objects.requireNonNullElseGet( explicitTargetEntity,
+				() -> extractClosestRealTypeAsString( typeArguments.get( 0 ), context ) );
 	}
 
 	/**
@@ -362,7 +370,7 @@ public class XmlMetaEntity implements Metamodel {
 		context.logMessage(
 				Diagnostic.Kind.WARNING,
 				"Unable to determine type for property " + propertyName + " of class " + getQualifiedName()
-						+ " using access type " + accessTypeInfo.getDefaultAccessType()
+				+ " using access type " + requireNonNull( accessTypeInfo ).getDefaultAccessType()
 		);
 		return null;
 	}
@@ -459,7 +467,7 @@ public class XmlMetaEntity implements Metamodel {
 	}
 
 	private boolean parseElementCollection(JaxbElementCollectionImpl collection) {
-		@Nullable String @Nullable[] types;
+		@Nullable String[] types;
 		XmlMetaCollection metaCollection;
 		ElementKind elementKind = getElementKind( collection.getAccess() );
 		String explicitTargetClass = determineExplicitTargetEntity( collection.getTargetClass() );
@@ -498,15 +506,15 @@ public class XmlMetaEntity implements Metamodel {
 		}
 	}
 
-	private String determineExplicitTargetEntity(String targetClass) {
-		String explicitTargetClass = targetClass;
-		if ( explicitTargetClass != null ) {
+	private @Nullable String determineExplicitTargetEntity(final @Nullable String targetClass) {
+		String explicitTargetClass = null;
+		if ( targetClass != null ) {
 			explicitTargetClass = determineFullyQualifiedClassName( defaultPackageName, targetClass );
 		}
 		return explicitTargetClass;
 	}
 
-	private @Nullable String determineExplicitMapKeyClass(JaxbMapKeyClassImpl mapKeyClass) {
+	private @Nullable String determineExplicitMapKeyClass(final @Nullable JaxbMapKeyClassImpl mapKeyClass) {
 		String explicitMapKey = null;
 		if ( mapKeyClass != null ) {
 			explicitMapKey = determineFullyQualifiedClassName( defaultPackageName, mapKeyClass.getClazz() );
@@ -515,7 +523,7 @@ public class XmlMetaEntity implements Metamodel {
 	}
 
 	private boolean parseOneToMany(JaxbOneToManyImpl oneToMany) {
-		@Nullable String @Nullable [] types;
+		@Nullable String[] types;
 		XmlMetaCollection metaCollection;
 		ElementKind elementKind = getElementKind( oneToMany.getAccess() );
 		String explicitTargetClass = determineExplicitTargetEntity( oneToMany.getTargetEntity() );
@@ -543,7 +551,7 @@ public class XmlMetaEntity implements Metamodel {
 	}
 
 	private boolean parseManyToMany(JaxbManyToManyImpl manyToMany) {
-		@Nullable String @Nullable [] types;
+		@Nullable String[] types;
 		XmlMetaCollection metaCollection;
 		ElementKind elementKind = getElementKind( manyToMany.getAccess() );
 		String explicitTargetClass = determineExplicitTargetEntity( manyToMany.getTargetEntity() );
@@ -616,9 +624,9 @@ public class XmlMetaEntity implements Metamodel {
 		);
 	}
 
-	private ElementKind getElementKind(AccessType accessType) {
+	private ElementKind getElementKind(@Nullable AccessType accessType) {
 		// if no explicit access type was specified in xml we use the entity access type
-		if ( accessType == null ) {
+		if ( accessType == null && accessTypeInfo != null ) {
 			return getElementKindForAccessType( accessTypeInfo.getAccessType() );
 		}
 		return FIELD.equals( accessType ) ? ElementKind.FIELD : ElementKind.METHOD;

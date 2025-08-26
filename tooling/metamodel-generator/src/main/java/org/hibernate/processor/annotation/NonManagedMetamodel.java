@@ -4,8 +4,8 @@
  */
 package org.hibernate.processor.annotation;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.hibernate.processor.Context;
+import org.jspecify.annotations.Nullable;
 
 import javax.lang.model.element.TypeElement;
 

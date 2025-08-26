@@ -4,9 +4,8 @@
  */
 package org.hibernate.processor.util;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import org.jspecify.annotations.Nullable;
+
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.TypeParameterElement;
@@ -23,9 +22,11 @@ import javax.lang.model.type.TypeVariable;
 import javax.lang.model.type.UnionType;
 import javax.lang.model.type.WildcardType;
 import javax.lang.model.util.SimpleTypeVisitor8;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
-
+import static java.util.Objects.requireNonNull;
 import static org.hibernate.processor.util.Constants.JAVA_OBJECT;
 
 /**
@@ -43,9 +44,8 @@ public final class TypeRenderingVisitor extends SimpleTypeVisitor8<@Nullable Obj
 		if ( typeMirror instanceof TypeVariable ) {
 			// Top level type variables don't need to render the upper bound as `T extends Type`
 			final Element typeVariableElement = ( (TypeVariable) typeMirror ).asElement();
-			if ( typeVariableElement instanceof TypeParameterElement ) {
-				final TypeParameterElement typeParameter = (TypeParameterElement) typeVariableElement;
-				if ( typeParameter.getEnclosingElement().getKind() == ElementKind.METHOD ) {
+			if ( typeVariableElement instanceof TypeParameterElement typeParameter ) {
+				if ( requireNonNull( typeParameter.getEnclosingElement() ).getKind() == ElementKind.METHOD ) {
 					// But for method level type variable we return the upper bound
 					// because the type variable has no meaning except for that method
 					typeMirror = ( (TypeVariable) typeMirror ).getUpperBound();
@@ -77,27 +77,18 @@ public final class TypeRenderingVisitor extends SimpleTypeVisitor8<@Nullable Obj
 	}
 
 	private static @Nullable String getPrimitiveTypeName(TypeKind kind) {
-		switch ( kind ) {
-			case INT:
-				return "int";
-			case BOOLEAN:
-				return "boolean";
-			case BYTE:
-				return "byte";
-			case CHAR:
-				return "char";
-			case DOUBLE:
-				return "double";
-			case FLOAT:
-				return "float";
-			case LONG:
-				return "long";
-			case SHORT:
-				return "short";
-			case VOID:
-				return "void";
-		}
-		return null;
+		return switch ( kind ) {
+			case INT -> "int";
+			case BOOLEAN -> "boolean";
+			case BYTE -> "byte";
+			case CHAR -> "char";
+			case DOUBLE -> "double";
+			case FLOAT -> "float";
+			case LONG -> "long";
+			case SHORT -> "short";
+			case VOID -> "void";
+			default -> null;
+		};
 	}
 
 	@Override
@@ -106,7 +97,7 @@ public final class TypeRenderingVisitor extends SimpleTypeVisitor8<@Nullable Obj
 	}
 
 	@Override
-	public @Nullable Object visitArray(ArrayType t, @Nullable Object o) {
+	public Object visitArray(ArrayType t, @Nullable Object o) {
 		t.getComponentType().accept( this, null );
 		sb.append( "[]" );
 		return t;
@@ -131,8 +122,7 @@ public final class TypeRenderingVisitor extends SimpleTypeVisitor8<@Nullable Obj
 	@Override
 	public @Nullable Object visitTypeVariable(TypeVariable t, @Nullable Object o) {
 		final Element typeVariableElement = t.asElement();
-		if ( typeVariableElement instanceof TypeParameterElement ) {
-			final TypeParameterElement typeParameter = (TypeParameterElement) typeVariableElement;
+		if ( typeVariableElement instanceof TypeParameterElement typeParameter ) {
 			sb.append( typeParameter );
 			if ( !JAVA_OBJECT.equals( t.getUpperBound().toString() ) && visitedTypeVariables.add( t ) ) {
 				sb.append( " extends " );
@@ -169,9 +159,9 @@ public final class TypeRenderingVisitor extends SimpleTypeVisitor8<@Nullable Obj
 	public @Nullable Object visitIntersection(IntersectionType t, @Nullable Object o) {
 		final List<? extends TypeMirror> bounds = t.getBounds();
 		bounds.get( 0 ).accept( this, null );
-		for ( int i = 0; i < bounds.size(); i++ ) {
+		for ( TypeMirror bound : bounds ) {
 			sb.append( " & " );
-			bounds.get( i ).accept( this, null );
+			bound.accept( this, null );
 		}
 		return null;
 	}

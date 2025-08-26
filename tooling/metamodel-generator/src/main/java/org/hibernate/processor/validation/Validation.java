@@ -9,7 +9,6 @@ import org.antlr.v4.runtime.BailErrorStrategy;
 import org.antlr.v4.runtime.DefaultErrorStrategy;
 import org.antlr.v4.runtime.atn.PredictionMode;
 import org.antlr.v4.runtime.misc.ParseCancellationException;
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.hibernate.PropertyNotFoundException;
 import org.hibernate.QueryException;
 import org.hibernate.engine.spi.SessionFactoryImplementor;
@@ -24,6 +23,8 @@ import org.hibernate.query.sqm.TerminalPathException;
 import org.hibernate.query.sqm.spi.SqmCreationContext;
 import org.hibernate.query.sqm.tree.SqmStatement;
 import org.hibernate.type.descriptor.java.spi.JdbcTypeRecommendationException;
+import org.jspecify.annotations.NullMarked;
+import org.jspecify.annotations.Nullable;
 
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.type.DeclaredType;
@@ -39,6 +40,7 @@ import static org.hibernate.processor.validation.ProcessorSessionFactory.isEntit
  *
  * @author Gavin King
  */
+@NullMarked
 public class Validation {
 
 	public interface Handler extends ANTLRErrorListener {

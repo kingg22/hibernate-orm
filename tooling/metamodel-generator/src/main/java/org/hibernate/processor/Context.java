@@ -4,14 +4,11 @@
  */
 package org.hibernate.processor;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import jakarta.persistence.AccessType;
+import org.hibernate.processor.model.Metamodel;
+import org.hibernate.processor.util.AccessTypeInformation;
+import org.jspecify.annotations.Nullable;
+
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.lang.model.element.AnnotationMirror;
 import javax.lang.model.element.AnnotationValue;
@@ -24,12 +21,14 @@ import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
 import javax.tools.Diagnostic;
-
-import org.hibernate.processor.model.Metamodel;
-import org.hibernate.processor.util.AccessTypeInformation;
-
-import jakarta.persistence.AccessType;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import static java.lang.Boolean.parseBoolean;
 import static java.util.Collections.emptyList;
@@ -81,16 +80,16 @@ public final class Context {
 	 * Whether all mapping files are xml-mapping-metadata-complete. In this case no annotation processing will take
 	 * place.
 	 */
-	private Boolean fullyXmlConfigured;
+	private @Nullable Boolean fullyXmlConfigured;
 	private boolean addInjectAnnotation = false;
 	private boolean addDependentAnnotation = false;
 	private boolean addComponentAnnotation = false;
 	private boolean addNonnullAnnotation = false;
 	private boolean addGeneratedAnnotation = true;
 	private boolean addGenerationDate;
-	private String[] suppressedWarnings;
+	private String @Nullable [] suppressedWarnings;
 	private boolean addTransactionScopedAnnotation;
-	private AccessType persistenceUnitDefaultAccessType;
+	private @Nullable AccessType persistenceUnitDefaultAccessType;
 	private boolean generateJakartaDataStaticMetamodel;
 	private boolean quarkusInjection;
 	private boolean springInjection;
@@ -213,7 +212,7 @@ public final class Context {
 		return suppressedWarnings != null;
 	}
 
-	public String[] getSuppressedWarnings() {
+	public String @Nullable [] getSuppressedWarnings() {
 		return suppressedWarnings;
 	}
 
@@ -402,7 +401,7 @@ public final class Context {
 				: this.fullyXmlConfigured && fullyXmlConfigured;
 	}
 
-	public AccessType getPersistenceUnitDefaultAccessType() {
+	public @Nullable AccessType getPersistenceUnitDefaultAccessType() {
 		return persistenceUnitDefaultAccessType;
 	}
 

@@ -4,7 +4,7 @@
  */
 package org.hibernate.processor.annotation;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import javax.lang.model.element.ExecutableElement;
 import java.util.List;
@@ -67,7 +67,7 @@ public class IdFinderMethod extends AbstractFinderMethod {
 		comment( declaration );
 		modifiers( declaration );
 		preamble( declaration, paramTypes );
-		if ( paramName != null && !isPrimitive(paramType) ) {
+		if ( !isPrimitive(paramType) ) {
 			nullCheck( declaration, paramName );
 		}
 		varOrReturn( declaration );

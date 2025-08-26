@@ -5,7 +5,9 @@
 package org.hibernate.processor.util;
 
 import jakarta.persistence.AccessType;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
+
+import static java.util.Objects.requireNonNullElse;
 
 /**
  * Encapsulates the access type information for a single class.
@@ -45,13 +47,7 @@ public class AccessTypeInformation {
 		if ( explicitAccessType != null ) {
 			return explicitAccessType;
 		}
-		else if ( defaultAccessType != null ) {
-			return defaultAccessType;
-
-		}
-		else {
-			return DEFAULT_ACCESS_TYPE;
-		}
+		return requireNonNullElse( defaultAccessType, DEFAULT_ACCESS_TYPE );
 	}
 
 	public void setDefaultAccessType(AccessType defaultAccessType) {

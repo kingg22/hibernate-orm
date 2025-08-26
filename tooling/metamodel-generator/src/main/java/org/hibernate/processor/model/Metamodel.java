@@ -4,12 +4,12 @@
  */
 package org.hibernate.processor.model;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.hibernate.processor.Context;
+import org.jspecify.annotations.Nullable;
 
-import java.util.List;
 import javax.lang.model.element.AnnotationMirror;
 import javax.lang.model.element.Element;
+import java.util.List;
 
 /**
  * @author Hardy Ferentschik

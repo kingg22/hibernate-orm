@@ -5,10 +5,10 @@
 package org.hibernate.processor.util;
 
 import jakarta.persistence.AccessType;
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.hibernate.processor.Context;
 import org.hibernate.processor.MetaModelGenerationException;
 import org.hibernate.processor.model.Metamodel;
+import org.jspecify.annotations.Nullable;
 
 import javax.lang.model.element.AnnotationMirror;
 import javax.lang.model.element.AnnotationValue;
@@ -40,6 +40,7 @@ import java.util.Set;
 import java.util.stream.Stream;
 
 import static java.beans.Introspector.decapitalize;
+import static java.util.Objects.requireNonNull;
 import static java.util.stream.Stream.concat;
 import static org.hibernate.internal.util.StringHelper.split;
 import static org.hibernate.processor.util.AccessTypeInformation.DEFAULT_ACCESS_TYPE;
@@ -163,7 +164,7 @@ public final class TypeUtils {
 		}
 	}
 
-	public static @Nullable TypeMirror extractClosestRealType(TypeMirror type, Context context, Set<TypeVariable> beingVisited) {
+	public static @Nullable TypeMirror extractClosestRealType(@Nullable TypeMirror type, Context context, Set<TypeVariable> beingVisited) {
 		if ( type == null ) {
 			return null;
 		}
@@ -203,10 +204,10 @@ public final class TypeUtils {
 	}
 
 	public static boolean containsAnnotation(Element element, String... annotations) {
-		assert element != null;
-		assert annotations != null;
+		requireNonNull( element );
+		requireNonNull( annotations );
 		final Set<String> annotationClassNames = Set.of(annotations);
-		for ( AnnotationMirror mirror : element.getAnnotationMirrors() ) {
+		for ( final AnnotationMirror mirror : element.getAnnotationMirrors() ) {
 			if ( annotationClassNames.contains( mirror.getAnnotationType().toString() ) ) {
 				return true;
 			}
@@ -225,8 +226,8 @@ public final class TypeUtils {
 	 * @return {@code true} if the provided annotation type is of the same type as the provided class, {@code false} otherwise.
 	 */
 	public static boolean isAnnotationMirrorOfType(AnnotationMirror annotationMirror, String qualifiedName) {
-		assert annotationMirror != null;
-		assert qualifiedName != null;
+		requireNonNull( annotationMirror );
+		requireNonNull( qualifiedName );
 		final Element element = annotationMirror.getAnnotationType().asElement();
 		final TypeElement typeElement = (TypeElement) element;
 		return typeElement.getQualifiedName().contentEquals( qualifiedName );
@@ -242,9 +243,9 @@ public final class TypeUtils {
 	 *         the {@code TypeElement} does not host the specified annotation.
 	 */
 	public static @Nullable AnnotationMirror getAnnotationMirror(Element element, String qualifiedName) {
-		assert element != null;
-		assert qualifiedName != null;
-		for ( AnnotationMirror mirror : element.getAnnotationMirrors() ) {
+		requireNonNull( element );
+		requireNonNull(  qualifiedName );
+		for ( final AnnotationMirror mirror : element.getAnnotationMirrors() ) {
 			if ( isAnnotationMirrorOfType( mirror, qualifiedName ) ) {
 				return mirror;
 			}
@@ -262,9 +263,9 @@ public final class TypeUtils {
 	 *         the {@code TypeElement} does not host the specified annotation (directly or inherited).
 	 */
 	public static @Nullable AnnotationMirror getInheritedAnnotationMirror(Elements elements, Element element, String qualifiedName) {
-		assert element != null;
-		assert qualifiedName != null;
-		for ( AnnotationMirror mirror : elements.getAllAnnotationMirrors(element) ) {
+		requireNonNull( element );
+		requireNonNull( qualifiedName );
+		for ( final AnnotationMirror mirror : elements.getAllAnnotationMirrors(element) ) {
 			if ( isAnnotationMirrorOfType( mirror, qualifiedName ) ) {
 				return mirror;
 			}
@@ -277,7 +278,7 @@ public final class TypeUtils {
 	}
 
 	public static boolean hasAnnotation(Element element, String... qualifiedNames) {
-		for ( String qualifiedName : qualifiedNames ) {
+		for ( final String qualifiedName : qualifiedNames ) {
 			if ( hasAnnotation( element, qualifiedName ) ) {
 				return true;
 			}
@@ -290,9 +291,9 @@ public final class TypeUtils {
 	}
 
 	public static @Nullable AnnotationValue getAnnotationValue(AnnotationMirror annotationMirror, String member) {
-		assert annotationMirror != null;
-		assert member != null;
-		for ( Map.Entry<? extends ExecutableElement, ? extends AnnotationValue> entry
+		requireNonNull( annotationMirror );
+		requireNonNull( member );
+		for ( final Map.Entry<? extends ExecutableElement, ? extends AnnotationValue> entry
 				: annotationMirror.getElementValues().entrySet() ) {
 			if ( entry.getKey().getSimpleName().contentEquals(member) ) {
 				return entry.getValue();
@@ -381,7 +382,7 @@ public final class TypeUtils {
 	}
 
 	private static void updateEmbeddableAccessTypeForMember(Context context, AccessType defaultAccessType, Element member) {
-		final @Nullable TypeElement embedded = member.asType().accept( new EmbeddedAttributeVisitor( context ), member );
+		final TypeElement embedded = member.asType().accept( new EmbeddedAttributeVisitor( context ), member );
 		if ( embedded != null ) {
 			updateEmbeddableAccessType( context, defaultAccessType, embedded );
 		}
@@ -691,9 +692,7 @@ public final class TypeUtils {
 		if ( superclass != null && superclass.getKind() == TypeKind.DECLARED  ) {
 			final DeclaredType declaredType = (DeclaredType) superclass;
 			final TypeElement typeElement = (TypeElement) declaredType.asElement();
-			if ( implementsInterface( typeElement, interfaceName) ) {
-				return true;
-			}
+			return implementsInterface( typeElement, interfaceName );
 		}
 		return false;
 	}
@@ -722,7 +721,7 @@ public final class TypeUtils {
 				+ "." + (jakartaDataStyle ? '_' + simpleName : simpleName + '_');
 	}
 
-	private static String qualifiedName(Element enclosingElement, boolean jakartaDataStyle) {
+	private static String qualifiedName(@Nullable Element enclosingElement, boolean jakartaDataStyle) {
 		if ( enclosingElement instanceof TypeElement typeElement ) {
 			return getGeneratedClassFullyQualifiedName( typeElement, jakartaDataStyle );
 		}

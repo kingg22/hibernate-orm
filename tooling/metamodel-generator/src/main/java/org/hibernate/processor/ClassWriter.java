@@ -28,7 +28,9 @@ import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Set;
+import java.util.StringJoiner;
 
+import static java.util.Objects.requireNonNull;
 import static org.hibernate.processor.util.Constants.SPRING_COMPONENT;
 import static org.hibernate.processor.util.TypeUtils.getGeneratedClassFullyQualifiedName;
 import static org.hibernate.processor.util.TypeUtils.isMemberType;
@@ -270,7 +272,7 @@ public final class ClassWriter {
 
 	private static String getGeneratedClassName(TypeElement typeElement, boolean jakartaDataStyle) {
 		final String simpleName = typeElement.getSimpleName().toString();
-		final Element enclosingElement = typeElement.getEnclosingElement();
+		final Element enclosingElement = requireNonNull( typeElement.getEnclosingElement() );
 		return (enclosingElement instanceof TypeElement
 				? getGeneratedSuperclassName( enclosingElement, jakartaDataStyle )
 				: ((PackageElement) enclosingElement).getQualifiedName().toString())
@@ -303,15 +305,16 @@ public final class ClassWriter {
 	}
 
 	private static String writeSuppressWarnings(Context context) {
-		final StringBuilder annotation = new StringBuilder("@SuppressWarnings({");
 		final String[] warnings = context.getSuppressedWarnings();
-		for (int i = 0; i < warnings.length; i++) {
-			if ( i>0 ) {
-				annotation.append(", ");
-			}
-			annotation.append('"').append(warnings[i]).append('"');
+		if (warnings == null || warnings.length == 0) {
+			return "";
 		}
-		return annotation.append("})").toString();
+
+		final StringJoiner joiner = new StringJoiner(", ", "@SuppressWarnings({", "})");
+		for (String warning : warnings) {
+			joiner.add('"' + warning + '"');
+		}
+		return joiner.toString();
 	}
 
 	private static String writeScopeAnnotation(Metamodel entity) {

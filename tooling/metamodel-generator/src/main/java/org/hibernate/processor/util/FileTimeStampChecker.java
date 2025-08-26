@@ -8,8 +8,6 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
-
 /**
  * @author Hardy Ferentschik
  */
@@ -26,7 +24,7 @@ public class FileTimeStampChecker implements Serializable {
 	}
 
 	@Override
-	public boolean equals(@Nullable Object o) {
+	public boolean equals(Object o) {
 		if ( this == o ) {
 			return true;
 		}

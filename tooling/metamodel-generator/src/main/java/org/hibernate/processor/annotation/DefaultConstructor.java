@@ -4,10 +4,10 @@
  */
 package org.hibernate.processor.annotation;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.hibernate.processor.model.MetaAttribute;
 import org.hibernate.processor.model.Metamodel;
 import org.hibernate.processor.util.Constants;
+import org.jspecify.annotations.Nullable;
 
 import static org.hibernate.processor.util.Constants.ENTITY_MANAGER_FACTORY;
 import static org.hibernate.processor.util.Constants.HIB_SESSION_FACTORY;

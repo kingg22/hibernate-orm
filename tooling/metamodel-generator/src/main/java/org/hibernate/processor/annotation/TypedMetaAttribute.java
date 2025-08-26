@@ -4,8 +4,8 @@
  */
 package org.hibernate.processor.annotation;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.hibernate.processor.model.Metamodel;
+import org.jspecify.annotations.Nullable;
 
 import static org.hibernate.processor.util.StringUtil.nameToMethodName;
 

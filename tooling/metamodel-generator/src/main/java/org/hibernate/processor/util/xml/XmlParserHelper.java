@@ -4,29 +4,27 @@
  */
 package org.hibernate.processor.util.xml;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-import javax.tools.FileObject;
-import javax.tools.StandardLocation;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
+import org.hibernate.boot.jaxb.cfg.spi.ObjectFactory;
+import org.hibernate.processor.Context;
+import org.hibernate.processor.util.NullnessUtil;
+import org.jspecify.annotations.Nullable;
+import org.xml.sax.SAXException;
+
+import javax.tools.FileObject;
+import javax.tools.StandardLocation;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
-
-import org.hibernate.boot.jaxb.cfg.spi.ObjectFactory;
-
-import org.hibernate.processor.Context;
-import org.hibernate.processor.util.NullnessUtil;
-
-import org.checkerframework.checker.nullness.qual.Nullable;
-import org.xml.sax.SAXException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 /**
  * Provides common functionality used for XML parsing.

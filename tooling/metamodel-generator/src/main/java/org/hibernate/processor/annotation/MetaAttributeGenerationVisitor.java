@@ -5,10 +5,10 @@
 package org.hibernate.processor.annotation;
 
 import jakarta.persistence.AccessType;
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.hibernate.processor.Context;
 import org.hibernate.processor.util.AccessTypeInformation;
 import org.hibernate.processor.util.Constants;
+import org.jspecify.annotations.Nullable;
 
 import javax.lang.model.element.AnnotationMirror;
 import javax.lang.model.element.Element;
@@ -25,6 +25,7 @@ import javax.lang.model.util.Types;
 import javax.tools.Diagnostic;
 import java.util.List;
 
+import static java.util.Objects.requireNonNull;
 import static org.hibernate.processor.util.Constants.ELEMENT_COLLECTION;
 import static org.hibernate.processor.util.Constants.LIST_ATTRIBUTE;
 import static org.hibernate.processor.util.Constants.MANY_TO_ANY;
@@ -139,10 +140,10 @@ public class MetaAttributeGenerationVisitor extends SimpleTypeVisitor8<@Nullable
 		}
 	}
 
-	private void setAccessType(TypeMirror collectionElementType, TypeElement collectionElement) {
+	private void setAccessType(TypeMirror collectionElementType, @Nullable TypeElement collectionElement) {
 		final String elementTypeName = collectionElementType.toString();
 		final AccessTypeInformation accessTypeInfo = context.getAccessTypeInfo( elementTypeName );
-		final AccessType entityAccessType = entity.getEntityAccessTypeInfo().getAccessType();
+		final AccessType entityAccessType = requireNonNull( entity.getEntityAccessTypeInfo() ).getAccessType();
 		if ( accessTypeInfo == null ) {
 			context.addAccessTypeInformation(
 					elementTypeName,
@@ -180,21 +181,18 @@ public class MetaAttributeGenerationVisitor extends SimpleTypeVisitor8<@Nullable
 		}
 		else {
 			final List<? extends TypeMirror> mirrors = declaredType.getTypeArguments();
-			switch ( mirrors.size() ) {
-				case 0:
-					return "?";
-				case 1:
-					return extractClosestRealTypeAsString( mirrors.get( 0 ), context );
-				case 2:
-					return extractClosestRealTypeAsString( mirrors.get( 1 ), context );
-				default:
+			return switch ( mirrors.size() ) {
+				case 0 -> "?";
+				case 1 -> extractClosestRealTypeAsString( mirrors.get( 0 ), context );
+				case 2 -> extractClosestRealTypeAsString( mirrors.get( 1 ), context );
+				default -> {
 					context.logMessage(
 							Diagnostic.Kind.WARNING,
 							"Unable to find the closest solid type" + declaredType
 					);
-					return "?";
-			}
+					yield "?";
+				}
+			};
 		}
 	}
-
 }

@@ -4,15 +4,14 @@
  */
 package org.hibernate.processor.xml;
 
-import java.io.IOException;
-import java.io.InputStream;
-import javax.tools.FileObject;
-import javax.tools.StandardLocation;
-
 import org.hibernate.boot.ResourceStreamLocator;
 import org.hibernate.processor.Context;
+import org.jspecify.annotations.Nullable;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import javax.tools.FileObject;
+import javax.tools.StandardLocation;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * @author Steve Ebersole

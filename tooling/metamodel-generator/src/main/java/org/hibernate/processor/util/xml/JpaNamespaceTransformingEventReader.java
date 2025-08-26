@@ -4,11 +4,8 @@
  */
 package org.hibernate.processor.util.xml;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import org.jspecify.annotations.Nullable;
+
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventFactory;
 import javax.xml.stream.XMLEventReader;
@@ -18,6 +15,11 @@ import javax.xml.stream.events.Namespace;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 import javax.xml.stream.util.EventReaderDelegate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Transforms the version attribute and namespace of the JPA configuration files (persistence.xml and orm.xml) to
@@ -86,7 +88,7 @@ public class JpaNamespaceTransformingEventReader extends EventReaderDelegate {
 	private static final String EMPTY_PREFIX = "";
 
 	private final XMLEventFactory xmlEventFactory;
-	private String currentDocumentNamespaceUri;
+	private @Nullable String currentDocumentNamespaceUri;
 
 	public JpaNamespaceTransformingEventReader(XMLEventReader reader) {
 		super( reader );
@@ -94,16 +96,16 @@ public class JpaNamespaceTransformingEventReader extends EventReaderDelegate {
 	}
 
 	@Override
-	public XMLEvent peek() throws XMLStreamException {
+	public @Nullable XMLEvent peek() throws XMLStreamException {
 		return wrap( super.peek() );
 	}
 
 	@Override
-	public XMLEvent nextEvent() throws XMLStreamException {
+	public @Nullable XMLEvent nextEvent() throws XMLStreamException {
 		return wrap( super.nextEvent() );
 	}
 
-	private XMLEvent wrap(XMLEvent event) {
+	private @Nullable XMLEvent wrap(@Nullable XMLEvent event) {
 		if ( event != null && event.isStartElement() ) {
 			return transform( event.asStartElement() );
 		}
@@ -156,7 +158,8 @@ public class JpaNamespaceTransformingEventReader extends EventReaderDelegate {
 		while ( existingAttributesIterator.hasNext() ) {
 			Attribute attribute = existingAttributesIterator.next();
 			if ( VERSION_ATTRIBUTE_NAME.equals( attribute.getName().getLocalPart() ) ) {
-				if ( currentDocumentNamespaceUri.equals( DEFAULT_PERSISTENCE_NAMESPACE ) ) {
+				if ( currentDocumentNamespaceUri != null &&
+					currentDocumentNamespaceUri.equals( DEFAULT_PERSISTENCE_NAMESPACE ) ) {
 					if ( !DEFAULT_PERSISTENCE_VERSION.equals( attribute.getName().getPrefix() ) ) {
 						newElementAttributeList.add(
 								xmlEventFactory.createAttribute(
