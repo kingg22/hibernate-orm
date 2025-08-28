@@ -8,4 +8,5 @@
  * about a running instance of {@link org.hibernate.SessionFactory} and its
  * interaction with the database and second-level cache.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.stat;

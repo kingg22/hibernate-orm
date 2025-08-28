@@ -10,6 +10,7 @@
  * of translating a HQL or criteria query to SQL.
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.sql.ast;
 
 import org.hibernate.Incubating;

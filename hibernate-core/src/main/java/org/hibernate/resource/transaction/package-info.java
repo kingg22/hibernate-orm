@@ -45,4 +45,5 @@
  * {@link org.hibernate.resource.transaction.spi.SynchronizationRegistry} for
  * additional details.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.resource.transaction;

@@ -7,4 +7,5 @@
  * @apiNote Moved to {@link org.hibernate.dialect.Dialect}
  */
 @Deprecated(forRemoval = true)
+@org.jspecify.annotations.NullMarked
 package org.hibernate.dialect.hint;

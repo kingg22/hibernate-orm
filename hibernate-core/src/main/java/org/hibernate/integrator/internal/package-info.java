@@ -7,4 +7,5 @@
  * Implementation of the SPI for extensions which integrate with Hibernate via the
  * {@link org.hibernate.service.Service} mechanism.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.integrator.internal;

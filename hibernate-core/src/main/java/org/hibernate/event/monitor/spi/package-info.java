@@ -12,4 +12,5 @@
  *
  * @since 7
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.event.monitor.spi;

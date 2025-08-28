@@ -11,4 +11,5 @@
  * function templates is generally a simple matter of composition
  */
 @org.hibernate.Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.sqm.produce.function;

@@ -32,4 +32,5 @@
  * code is necessary, just an implementation of JCache, properly registered via
  * the JCache spec.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.cache.spi;

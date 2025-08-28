@@ -339,4 +339,5 @@
  * may be used to customize a {@link org.hibernate.annotations.Formula @Formula} for a given version
  * of a given database.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.annotations;

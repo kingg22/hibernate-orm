@@ -50,4 +50,5 @@
  *
  * @see org.hibernate.boot
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.mapping;

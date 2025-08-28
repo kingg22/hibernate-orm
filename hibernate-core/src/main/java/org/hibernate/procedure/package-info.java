@@ -44,4 +44,5 @@
  * @see org.hibernate.Session#createStoredProcedureCall(String, Class[])
  * @see org.hibernate.Session#createStoredProcedureCall(String, String...)
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.procedure;

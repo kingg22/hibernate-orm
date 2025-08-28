@@ -6,4 +6,5 @@
 /**
  * A tiny SPI for dealing with compound names and navigable paths.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.spi;

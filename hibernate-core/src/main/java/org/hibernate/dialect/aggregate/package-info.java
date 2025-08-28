@@ -9,4 +9,5 @@
  *
  * @see org.hibernate.dialect.aggregate.AggregateSupport
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.dialect.aggregate;

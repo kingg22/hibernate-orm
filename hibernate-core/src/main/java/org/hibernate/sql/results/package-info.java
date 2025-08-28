@@ -10,6 +10,7 @@
  * {@link org.hibernate.sql.results.graph.Fetch} nodes.
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.sql.results;
 
 import org.hibernate.Incubating;

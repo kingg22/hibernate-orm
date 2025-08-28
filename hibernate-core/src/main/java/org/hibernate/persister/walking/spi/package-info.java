@@ -8,4 +8,5 @@
  * want {@link org.hibernate.persister.walking.spi.AttributeSource}to become
  * part of the persister model.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.persister.walking.spi;

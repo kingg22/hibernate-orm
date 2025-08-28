@@ -137,6 +137,7 @@
  * {@code @Nonnull} to indicate required parameters.
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.annotations.processing;
 
 import org.hibernate.Incubating;

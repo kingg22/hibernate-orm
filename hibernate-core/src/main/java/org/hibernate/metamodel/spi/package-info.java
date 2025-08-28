@@ -9,6 +9,7 @@
  * {@linkplain org.hibernate.metamodel.spi.EmbeddableInstantiator embeddable objects}.
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.metamodel.spi;
 
 import org.hibernate.Incubating;

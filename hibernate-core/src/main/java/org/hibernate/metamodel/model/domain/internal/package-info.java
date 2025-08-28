@@ -6,4 +6,5 @@
 /**
  * Implementation of the SPI for the runtime domain metamodel.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.metamodel.model.domain.internal;

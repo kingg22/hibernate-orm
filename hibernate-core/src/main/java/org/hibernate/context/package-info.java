@@ -12,4 +12,5 @@
  *     notion} of a "current" tenant id.
  * </ul>
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.context;

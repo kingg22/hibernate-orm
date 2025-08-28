@@ -28,4 +28,5 @@
  *     }
  * </pre>
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.result;

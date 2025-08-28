@@ -11,4 +11,5 @@
  *
  * @see org.hibernate.integrator.spi.Integrator
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.integrator.spi;

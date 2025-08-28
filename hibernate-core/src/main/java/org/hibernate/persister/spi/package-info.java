@@ -9,4 +9,5 @@
  * @see org.hibernate.persister.spi.PersisterClassResolver
  * @see org.hibernate.persister.spi.PersisterFactory
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.persister.spi;

@@ -24,4 +24,5 @@
  * particularly with respect to classloading.
  * </ol>
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.boot.registry;

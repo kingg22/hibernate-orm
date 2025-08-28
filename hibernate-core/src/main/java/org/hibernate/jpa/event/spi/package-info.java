@@ -16,4 +16,5 @@
  * @see jakarta.persistence.PostRemove
  * @see jakarta.persistence.PostLoad
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.jpa.event.spi;

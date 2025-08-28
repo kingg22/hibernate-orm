@@ -8,6 +8,7 @@
  * with additional functionality by registering a {@link org.hibernate.service.Service}.
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.criteria.spi;
 
 import org.hibernate.Incubating;

@@ -11,4 +11,5 @@
  * @see org.hibernate.tool.schema.spi.SchemaManagementTool
  * @see org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.tool.schema.spi;

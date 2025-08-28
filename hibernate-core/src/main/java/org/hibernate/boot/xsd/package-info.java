@@ -6,4 +6,5 @@
 /**
  * Support for XSD handling.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.boot.xsd;

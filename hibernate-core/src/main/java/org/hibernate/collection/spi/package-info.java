@@ -15,4 +15,5 @@
  * @see org.hibernate.collection.spi.PersistentCollection
  * @see org.hibernate.collection.spi.CollectionSemantics
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.collection.spi;

@@ -13,4 +13,5 @@
  * @see org.hibernate.query.NativeQuery#addFetch
  * @see org.hibernate.query.NativeQuery#addRoot
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.results.internal.dynamic;

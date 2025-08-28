@@ -9,6 +9,7 @@
  * @apiNote This entire package, including its subpackages, is considered incubating.
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.graph;
 
 import org.hibernate.Incubating;

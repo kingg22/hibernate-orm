@@ -22,4 +22,5 @@
  *
  * @see org.hibernate.generator
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.id;

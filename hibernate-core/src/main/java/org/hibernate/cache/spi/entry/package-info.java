@@ -6,4 +6,5 @@
 /**
  * This package defines formats for disassembled state kept in the second level cache.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.cache.spi.entry;

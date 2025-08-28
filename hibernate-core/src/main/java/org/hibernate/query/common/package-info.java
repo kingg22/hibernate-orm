@@ -10,6 +10,7 @@
  * @see org.hibernate.query.common.TemporalUnit
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.common;
 
 import org.hibernate.Incubating;

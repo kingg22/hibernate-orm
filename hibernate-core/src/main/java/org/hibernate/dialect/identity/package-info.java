@@ -8,4 +8,5 @@
  *
  * @see org.hibernate.dialect.identity.IdentityColumnSupport
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.dialect.identity;

@@ -19,4 +19,5 @@
  * <li>Support for {@linkplain org.hibernate.sql.exec execution} of SQL via JDBC.
  * </ul>
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.sql;

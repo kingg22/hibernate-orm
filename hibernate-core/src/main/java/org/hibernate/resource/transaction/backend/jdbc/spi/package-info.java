@@ -10,4 +10,5 @@
  *
  * @see org.hibernate.resource.transaction.backend.jdbc.spi.JdbcResourceTransaction
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.resource.transaction.backend.jdbc.spi;

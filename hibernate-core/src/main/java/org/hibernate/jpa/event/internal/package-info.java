@@ -6,4 +6,5 @@
 /**
  * Internal details of implementing support for JPA callbacks
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.jpa.event.internal;

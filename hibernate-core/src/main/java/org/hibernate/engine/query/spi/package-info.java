@@ -8,4 +8,5 @@
  *
  * @see org.hibernate.engine.query.spi.NativeQueryInterpreter
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.engine.query.spi;

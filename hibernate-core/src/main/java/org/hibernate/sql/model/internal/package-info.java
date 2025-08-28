@@ -12,6 +12,7 @@
  * @author Steve Ebersole
  */
 @Internal
+@org.jspecify.annotations.NullMarked
 package org.hibernate.sql.model.internal;
 
 import org.hibernate.Internal;

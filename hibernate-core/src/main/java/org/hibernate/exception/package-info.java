@@ -8,4 +8,5 @@
  * along with an SPI for interpreting product-specific {@link java.sql.SQLException}s
  * arising from a JDBC driver into something more uniform and meaningful.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.exception;

@@ -6,4 +6,5 @@
 /**
  * Internal implementations and support for persistent collections.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.collection.internal;

@@ -8,4 +8,5 @@
  *
  * @see org.hibernate.metamodel.model.domain.spi.JpaMetamodelImplementor
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.metamodel.model.domain.spi;

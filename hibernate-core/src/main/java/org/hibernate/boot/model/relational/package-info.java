@@ -9,4 +9,5 @@
  * Includes the extremely useful
  * {@link org.hibernate.boot.model.relational.AuxiliaryDatabaseObject}.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.boot.model.relational;

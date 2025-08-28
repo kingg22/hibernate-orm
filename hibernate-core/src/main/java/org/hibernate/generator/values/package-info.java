@@ -10,6 +10,7 @@
  * @see org.hibernate.generator.values.GeneratedValuesMutationDelegate
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.generator.values;
 
 import org.hibernate.Incubating;

@@ -10,6 +10,7 @@
  * @author Steve Ebersole
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.persister.entity.mutation;
 
 import org.hibernate.Incubating;

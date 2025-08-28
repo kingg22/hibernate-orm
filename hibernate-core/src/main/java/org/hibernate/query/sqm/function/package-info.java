@@ -18,4 +18,5 @@
  * @see org.hibernate.boot.model.FunctionContributor
  * @see org.hibernate.query.spi.QueryEngine#getSqmFunctionRegistry()
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.sqm.function;

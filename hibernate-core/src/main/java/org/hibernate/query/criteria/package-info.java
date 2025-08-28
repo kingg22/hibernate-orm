@@ -45,6 +45,7 @@
  * @see org.hibernate.query.criteria.CriteriaDefinition
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.criteria;
 
 import jakarta.persistence.criteria.Subquery;

@@ -9,4 +9,5 @@
  *
  * @see org.hibernate.resource.transaction.spi.TransactionCoordinator
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.resource.transaction.spi;

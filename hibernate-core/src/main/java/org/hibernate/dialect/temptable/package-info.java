@@ -8,4 +8,5 @@
  *
  * @see org.hibernate.dialect.temptable.TemporaryTableExporter
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.dialect.temptable;

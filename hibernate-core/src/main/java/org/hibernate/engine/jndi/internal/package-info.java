@@ -6,4 +6,5 @@
 /**
  * Internal contracts defining the JNDI support within Hibernate
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.engine.jndi.internal;

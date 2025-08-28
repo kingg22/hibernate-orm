@@ -23,4 +23,5 @@
  *
  * @see org.hibernate.dialect.Dialect
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.dialect;

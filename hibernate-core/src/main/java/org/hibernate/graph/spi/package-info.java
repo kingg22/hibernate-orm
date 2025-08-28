@@ -8,6 +8,7 @@
  * of the APIs defined in {@link org.hibernate.graph}.
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.graph.spi;
 
 import org.hibernate.Incubating;

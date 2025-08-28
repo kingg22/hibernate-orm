@@ -14,4 +14,5 @@
  * {@link org.hibernate.resource.beans.spi.ManagedBeanRegistry},
  * which may or may not really be backed by CDI.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.resource.beans.spi;

@@ -6,4 +6,5 @@
 /**
  * SPI for handling SQM UPDATE and DELETE queries
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.sqm.mutation.spi;

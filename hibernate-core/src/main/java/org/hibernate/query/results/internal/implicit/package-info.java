@@ -10,4 +10,5 @@
  *     <li>mapping results to a named entity class with no explicit property mappings</li>
  * </ul>
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.results.internal.implicit;

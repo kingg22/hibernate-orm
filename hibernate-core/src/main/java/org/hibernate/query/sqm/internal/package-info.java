@@ -6,4 +6,5 @@
 /**
  * Package for the SQM-backed Query implementation details
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.sqm.internal;

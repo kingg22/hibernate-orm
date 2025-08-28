@@ -26,4 +26,5 @@
  *          and friends, or an implementation of the venerable
  *          {@link org.hibernate.Interceptor} interface.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.event.spi;

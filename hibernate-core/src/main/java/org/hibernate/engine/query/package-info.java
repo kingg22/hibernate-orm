@@ -6,4 +6,5 @@
 /**
  * Support for dealing with parameters of native queries.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.engine.query;

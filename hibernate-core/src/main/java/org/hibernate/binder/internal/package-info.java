@@ -10,4 +10,5 @@
  * 	@implNote Implementing built-in annotations here helps clean up the messy
  * 	          code in {@link org.hibernate.boot.model.internal}.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.binder.internal;

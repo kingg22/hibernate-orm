@@ -6,4 +6,5 @@
 /**
  * specialized classes to keep track of changes
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.bytecode.enhance.internal.tracker;

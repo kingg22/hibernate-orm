@@ -9,4 +9,5 @@
  * generation. The root abstraction is the interface
  * {@link org.hibernate.generator.Generator}.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.generator;

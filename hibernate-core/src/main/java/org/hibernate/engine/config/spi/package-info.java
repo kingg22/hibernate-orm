@@ -8,4 +8,5 @@
  * <p>
  * Provides access to settings via a {@link org.hibernate.service.ServiceRegistry}.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.engine.config.spi;

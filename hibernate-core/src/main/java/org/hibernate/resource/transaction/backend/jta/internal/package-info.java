@@ -11,4 +11,5 @@
  * abstracts over access to JTA via {@link jakarta.transaction.UserTransaction} or via
  * {@link jakarta.transaction.TransactionManager}.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.resource.transaction.backend.jta.internal;

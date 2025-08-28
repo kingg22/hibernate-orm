@@ -6,4 +6,5 @@
 /**
  * Support for caching of query results.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.sql.results.caching;

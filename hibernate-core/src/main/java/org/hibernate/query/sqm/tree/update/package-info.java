@@ -6,4 +6,5 @@
 /**
  * Nodes representing {@code update} statements in the SQM tree.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.sqm.tree.update;

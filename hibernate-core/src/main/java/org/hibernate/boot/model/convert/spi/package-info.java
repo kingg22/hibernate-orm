@@ -8,4 +8,5 @@
  * {@linkplain org.hibernate.boot.model.convert.spi.ConverterRegistry registry}
  * of JPA {@link jakarta.persistence.AttributeConverter}s.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.boot.model.convert.spi;

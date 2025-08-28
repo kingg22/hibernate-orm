@@ -21,4 +21,5 @@
  * @see org.hibernate.integrator.spi.Integrator
  * @see org.hibernate.service.spi.SessionFactoryServiceRegistryBuilder
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.service;

@@ -15,6 +15,7 @@
  * @see jakarta.persistence.metamodel
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.metamodel.model.domain;
 
 import org.hibernate.Incubating;

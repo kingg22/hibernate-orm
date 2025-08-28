@@ -8,4 +8,5 @@
  *
  * @see org.hibernate.type.descriptor.sql.spi.DdlTypeRegistry
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.type.descriptor.sql.spi;

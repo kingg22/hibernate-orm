@@ -6,4 +6,5 @@
 /**
  * Internals for building StrategySelector
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.boot.registry.selector.internal;

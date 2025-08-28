@@ -6,4 +6,5 @@
 /**
  * Implementation of the SPIs for native SQL query support.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.sql.internal;

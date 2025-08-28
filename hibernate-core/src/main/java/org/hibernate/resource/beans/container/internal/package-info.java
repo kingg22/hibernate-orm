@@ -6,4 +6,5 @@
 /**
  * An implementation of the bean container SPI based on CDI.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.resource.beans.container.internal;

@@ -19,4 +19,5 @@
  * APIs related to querying are now defined under the namespace
  * {@link org.hibernate.query}.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate;

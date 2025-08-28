@@ -6,4 +6,5 @@
 /**
  * Implementation of the second-level cache configuration SPI.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.cache.cfg.internal;

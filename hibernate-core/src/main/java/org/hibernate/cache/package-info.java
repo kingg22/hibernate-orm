@@ -9,4 +9,5 @@
  * The subpackage {@link org.hibernate.cache.spi} defines an SPI
  * used to integrate any third-party cache implementation.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.cache;

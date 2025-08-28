@@ -8,4 +8,5 @@
  *
  * @see org.hibernate.engine.transaction.jta.platform.spi.JtaPlatform
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.engine.transaction.jta.platform.spi;

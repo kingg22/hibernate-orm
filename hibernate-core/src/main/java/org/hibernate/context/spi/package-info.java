@@ -6,4 +6,5 @@
 /**
  * SPI-level contracts around "current session" and "current tenant" support.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.context.spi;

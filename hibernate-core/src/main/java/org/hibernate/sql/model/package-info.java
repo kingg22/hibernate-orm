@@ -11,6 +11,7 @@
  * @author Steve Ebersole
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.sql.model;
 
 import org.hibernate.Incubating;

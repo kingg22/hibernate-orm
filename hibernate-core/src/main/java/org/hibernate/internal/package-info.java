@@ -7,4 +7,5 @@
  * An internal package containing implementations of central Hibernate APIs,
  * mostly defined in {@link org.hibernate}.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.internal;

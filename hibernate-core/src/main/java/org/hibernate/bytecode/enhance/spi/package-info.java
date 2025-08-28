@@ -6,4 +6,5 @@
 /**
  * Package defining bytecode code enhancement (instrumentation) support.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.bytecode.enhance.spi;

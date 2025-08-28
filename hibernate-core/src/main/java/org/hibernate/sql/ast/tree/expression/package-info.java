@@ -6,4 +6,5 @@
 /**
  * AST nodes representing expressions in a SQL tree.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.sql.ast.tree.expression;

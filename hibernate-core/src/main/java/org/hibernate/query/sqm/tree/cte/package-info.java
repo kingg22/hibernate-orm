@@ -6,4 +6,5 @@
 /**
  * Nodes representing common table expressions (CTE) in the SQM tree.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.sqm.tree.cte;

@@ -6,4 +6,5 @@
 /**
  * Various implementations of the SPI contracts for obtaining JDBC {@link java.sql.Connection}s.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.engine.jdbc.connections.internal;

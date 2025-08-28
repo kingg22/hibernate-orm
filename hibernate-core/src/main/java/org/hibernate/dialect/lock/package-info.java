@@ -11,6 +11,7 @@
  * @apiNote Marked incubating as major refactoring and reorganizing expected here during 7.x development.
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.dialect.lock;
 
 import org.hibernate.Incubating;

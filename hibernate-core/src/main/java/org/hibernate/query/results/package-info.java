@@ -13,4 +13,5 @@
  *
  * @author Steve Ebersole
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.results;

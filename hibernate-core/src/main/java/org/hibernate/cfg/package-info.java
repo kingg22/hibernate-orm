@@ -125,4 +125,5 @@
  * {@link org.hibernate.cfg.Configuration#configure()} or
  * {@link org.hibernate.boot.registry.StandardServiceRegistryBuilder#configure()}.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.cfg;

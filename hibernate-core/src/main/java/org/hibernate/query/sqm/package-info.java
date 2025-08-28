@@ -43,6 +43,7 @@
  * @apiNote This entire package is in an incubating state.
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.sqm;
 
 import org.hibernate.Incubating;

@@ -24,4 +24,5 @@
  * @see org.hibernate.binder.AttributeBinder
  * @see org.hibernate.binder.TypeBinder
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.binder;

@@ -6,4 +6,5 @@
 /**
  * Implementation of the SPI for integrating pluggable services.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.service.internal;

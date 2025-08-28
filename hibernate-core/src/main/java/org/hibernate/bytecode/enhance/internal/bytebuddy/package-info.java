@@ -6,4 +6,5 @@
 /**
  * package containing bytecode enhancement code (internals)
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.bytecode.enhance.internal.bytebuddy;

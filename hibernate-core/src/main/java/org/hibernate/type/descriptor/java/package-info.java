@@ -22,4 +22,5 @@
  * @see org.hibernate.type.descriptor.java.JavaType
  * @see org.hibernate.type.descriptor.java.MutabilityPlan
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.type.descriptor.java;

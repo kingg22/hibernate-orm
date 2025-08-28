@@ -6,4 +6,5 @@
 /**
  * The built-in implementation of the configuration service.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.engine.config.internal;

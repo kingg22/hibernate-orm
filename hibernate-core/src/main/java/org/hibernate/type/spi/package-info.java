@@ -8,4 +8,5 @@
  *
  * @see org.hibernate.type.spi.TypeConfiguration
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.type.spi;

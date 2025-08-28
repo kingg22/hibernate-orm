@@ -6,4 +6,5 @@
 /**
  * Contains basic support for Java XML Processing (JAXP) via Streaming API for XML (StAX)
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.boot.jaxb.internal.stax;

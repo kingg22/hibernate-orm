@@ -8,4 +8,5 @@
  * such as {@link jakarta.persistence.SqlResultSetMapping}, {@code orm.xml},
  * {@code mapping.xml} or {@code hbm.xml}.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.results.internal.complete;

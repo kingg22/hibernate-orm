@@ -6,4 +6,5 @@
 /**
  * Internal implementations and support around "current session" handling.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.context.internal;

@@ -6,4 +6,5 @@
 /**
  * AST nodes representing {@code select} statements in a SQL tree.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.sql.ast.tree.select;

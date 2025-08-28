@@ -6,4 +6,5 @@
 /**
  * Defines Hibernate implementation of Java Persistence specification.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.jpa.internal;

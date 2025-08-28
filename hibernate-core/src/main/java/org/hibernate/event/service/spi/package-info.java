@@ -8,4 +8,5 @@
  *
  * @see org.hibernate.event.service.spi.EventListenerRegistry
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.event.service.spi;

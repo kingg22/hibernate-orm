@@ -24,4 +24,5 @@
  *          basic types}. Contrariwise, {@code CompositeUserType} has been
  *          redesigned and is now more powerful and much easier to use.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.usertype;

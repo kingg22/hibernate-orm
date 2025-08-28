@@ -10,6 +10,7 @@
  * @author Steve Ebersole
  */
 @Internal
+@org.jspecify.annotations.NullMarked
 package org.hibernate.sql.model.ast.builder;
 
 import org.hibernate.Internal;

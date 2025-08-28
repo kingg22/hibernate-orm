@@ -6,4 +6,5 @@
 /**
  * Internals for JDBC REF_CURSOR support.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.engine.jdbc.cursor.internal;

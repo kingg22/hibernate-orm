@@ -10,4 +10,5 @@
  * The interface {@link org.hibernate.resource.jdbc.spi.StatementInspector} is especially
  * useful for monitoring/intercepting SQL statements as they are sent to the database.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.resource.jdbc.spi;

@@ -6,4 +6,5 @@
 /**
  *  Internal utility classes
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.internal.util;

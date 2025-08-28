@@ -9,4 +9,5 @@
  * @see jakarta.persistence.OrderBy
  * @see org.hibernate.annotations.SQLOrder
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.metamodel.mapping.ordering;

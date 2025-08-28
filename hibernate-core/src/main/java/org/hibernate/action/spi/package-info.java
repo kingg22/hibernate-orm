@@ -17,4 +17,5 @@
  * and {@link org.hibernate.action.spi.BeforeTransactionCompletionProcess}
  * processors.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.action.spi;

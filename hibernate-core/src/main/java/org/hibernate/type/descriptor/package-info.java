@@ -11,4 +11,5 @@
  * @see org.hibernate.type.descriptor.ValueBinder
  * @see org.hibernate.type.descriptor.ValueExtractor
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.type.descriptor;

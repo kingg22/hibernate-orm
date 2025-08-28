@@ -6,4 +6,5 @@
 /**
  * Nodes representing {@code select} statements in the SQM tree.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.sqm.tree.select;

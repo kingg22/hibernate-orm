@@ -20,6 +20,7 @@
  * @author Steve Ebersole
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.metamodel;
 
 import org.hibernate.Incubating;

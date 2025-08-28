@@ -6,4 +6,5 @@
 /**
  * An SPI abstracting over CDI-like bean containers.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.resource.beans.container.spi;

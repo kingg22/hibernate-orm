@@ -8,4 +8,5 @@
  * <p>
  * See also the {@link org.hibernate.internal} package.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.engine.internal;

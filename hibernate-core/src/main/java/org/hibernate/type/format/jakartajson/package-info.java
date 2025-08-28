@@ -6,4 +6,5 @@
 /**
  * An implementation of {@link org.hibernate.type.format.FormatMapper} using Jakarta JSON.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.type.format.jakartajson;

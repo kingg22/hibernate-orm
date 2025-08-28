@@ -6,4 +6,5 @@
 /**
  * Includes several general-purpose implementations of {@link org.hibernate.type.descriptor.sql.DdlType}.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.type.descriptor.sql.internal;

@@ -6,4 +6,5 @@
 /**
  * Contracts supporting Dialect resolution (from JDBC metadata) and Dialect building.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.engine.jdbc.dialect.spi;

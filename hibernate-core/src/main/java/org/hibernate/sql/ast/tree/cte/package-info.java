@@ -33,7 +33,9 @@
 // 				select col1, col2, col3
 // 				from cte_name
 // 			)
+
 /**
  * Support for common table expressions (CTE) in a SQL tree.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.sql.ast.tree.cte;

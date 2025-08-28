@@ -8,4 +8,5 @@
  *
  * @see org.hibernate.id.insert.InsertGeneratedIdentifierDelegate
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.id.insert;

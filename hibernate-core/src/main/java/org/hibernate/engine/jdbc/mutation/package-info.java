@@ -18,6 +18,7 @@
  * @author Steve Ebersole
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.engine.jdbc.mutation;
 
 import org.hibernate.Incubating;

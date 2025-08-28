@@ -6,4 +6,5 @@
 /**
  * JAXB details.  Mainly enum converters and spi contract adapters.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.boot.jaxb.hbm.internal;

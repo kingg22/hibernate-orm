@@ -28,4 +28,5 @@
  * @apiNote The API defined in this package replaced the now-removed interface
  *          {@code org.hibernate.cfg.NamingStrategy} from older versions of Hibernate.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.boot.model.naming;

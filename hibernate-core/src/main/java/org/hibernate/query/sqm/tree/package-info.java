@@ -14,4 +14,5 @@
  *          That makes for overly long code. Prefixing the names of classes helps
  *          alleviate that problem.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.sqm.tree;

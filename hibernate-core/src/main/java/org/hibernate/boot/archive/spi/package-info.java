@@ -12,4 +12,5 @@
  * @see org.hibernate.boot.archive.spi.ArchiveDescriptor
  * @see org.hibernate.boot.archive.scan.spi
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.boot.archive.spi;

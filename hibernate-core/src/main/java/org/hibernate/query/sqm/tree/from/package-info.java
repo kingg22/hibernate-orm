@@ -6,4 +6,5 @@
 /**
  * Nodes representing root entities and joins in the SQM tree.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.sqm.tree.from;

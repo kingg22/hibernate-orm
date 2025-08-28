@@ -6,4 +6,5 @@
 /**
  * Built-in implementation of the SPI for integrating entity and collection persisters.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.persister.internal;

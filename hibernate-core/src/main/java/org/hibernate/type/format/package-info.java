@@ -11,6 +11,7 @@
  * @see org.hibernate.type.format.FormatMapper
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.type.format;
 
 import org.hibernate.Incubating;

@@ -6,4 +6,5 @@
 /**
  * SPIs for HQL support.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.hql.spi;

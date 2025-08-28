@@ -6,4 +6,5 @@
 /**
  * Contains some functions for pretty-printing things for exception and log messages.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.pretty;

@@ -8,4 +8,5 @@
  *
  * @see org.hibernate.stat.spi.StatisticsImplementor
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.stat.spi;

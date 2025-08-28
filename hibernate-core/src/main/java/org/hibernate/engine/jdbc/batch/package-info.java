@@ -6,4 +6,5 @@
 /**
  * Support for JDBC statement batching.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.engine.jdbc.batch;

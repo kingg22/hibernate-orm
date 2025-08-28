@@ -6,4 +6,5 @@
 /**
  * Support for various aspects of JDBC interaction.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.engine.jdbc;

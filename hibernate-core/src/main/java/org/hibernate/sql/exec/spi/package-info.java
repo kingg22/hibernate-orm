@@ -13,6 +13,7 @@
  * starting with {@link org.hibernate.sql.results.jdbc.spi.JdbcValuesMapping}
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.sql.exec.spi;
 
 import org.hibernate.Incubating;

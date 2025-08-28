@@ -6,4 +6,5 @@
 /**
  * Programmatic access to the schema management tool.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.relational;

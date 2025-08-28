@@ -8,4 +8,5 @@
  *
  * @see org.hibernate.dialect.pagination.LimitHandler
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.dialect.pagination;

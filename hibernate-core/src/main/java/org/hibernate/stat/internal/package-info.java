@@ -6,4 +6,5 @@
 /**
  * The built-in implementation of the statistics collection service.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.stat.internal;

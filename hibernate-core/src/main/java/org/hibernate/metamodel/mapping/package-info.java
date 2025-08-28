@@ -13,6 +13,7 @@
  * @implSpec This entire package is considered incubating at the moment
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.metamodel.mapping;
 
 import org.hibernate.Incubating;

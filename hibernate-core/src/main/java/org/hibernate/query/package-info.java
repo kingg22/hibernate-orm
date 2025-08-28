@@ -28,4 +28,5 @@
  * Other subpackages contain SPIs and internal implementation details,
  * including the HQL parser and translator.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query;

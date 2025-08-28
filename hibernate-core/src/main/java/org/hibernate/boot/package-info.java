@@ -88,4 +88,5 @@
  *     order of columns} in generated DDL statements.
  * </ul>
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.boot;

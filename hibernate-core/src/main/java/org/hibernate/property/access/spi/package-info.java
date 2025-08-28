@@ -9,4 +9,5 @@
  *
  * @see org.hibernate.property.access.spi.PropertyAccessStrategy
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.property.access.spi;

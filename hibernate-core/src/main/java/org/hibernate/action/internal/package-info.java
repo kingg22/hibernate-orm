@@ -9,4 +9,5 @@
  * These actions are scheduled for execution by the concrete event
  * listeners defined in {@link org.hibernate.event.internal}.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.action.internal;

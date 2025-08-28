@@ -6,4 +6,5 @@
 /**
  * Implementations of {@link org.hibernate.type.format.FormatMapper} using Jackson.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.type.format.jackson;

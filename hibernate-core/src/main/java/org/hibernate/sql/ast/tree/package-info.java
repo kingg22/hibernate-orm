@@ -11,6 +11,7 @@
  * This package and all subpackages are currently incubating and subject to change.
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.sql.ast.tree;
 
 import org.hibernate.Incubating;

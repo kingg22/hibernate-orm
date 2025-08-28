@@ -6,4 +6,5 @@
 /**
  * Contains the {@link org.hibernate.id.uuid.UuidGenerator}.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.id.uuid;

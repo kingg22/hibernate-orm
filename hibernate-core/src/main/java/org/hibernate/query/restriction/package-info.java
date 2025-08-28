@@ -2,6 +2,7 @@
  * SPDX-License-Identifier: Apache-2.0
  * Copyright Red Hat Inc. and Hibernate Authors
  */
+
 /**
  * The {@link org.hibernate.query.restriction.Restriction} framework.
  *
@@ -11,6 +12,7 @@
  * @since 7
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.restriction;
 
 import org.hibernate.Incubating;

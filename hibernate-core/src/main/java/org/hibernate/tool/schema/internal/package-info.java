@@ -6,4 +6,5 @@
 /**
  * An implementation of the SPI for the tooling related to DDL generation, export, migration, and validation.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.tool.schema.internal;

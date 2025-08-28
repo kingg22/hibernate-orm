@@ -6,4 +6,5 @@
 /**
  * The class loading service internals.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.boot.registry.classloading.internal;

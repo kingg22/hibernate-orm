@@ -6,4 +6,5 @@
 /**
  * Byte Buddy support internals
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.bytecode.internal.bytebuddy;

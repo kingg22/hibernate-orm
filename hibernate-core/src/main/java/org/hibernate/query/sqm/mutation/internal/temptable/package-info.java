@@ -16,4 +16,5 @@
  *
  * @asciidoc
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.sqm.mutation.internal.temptable;

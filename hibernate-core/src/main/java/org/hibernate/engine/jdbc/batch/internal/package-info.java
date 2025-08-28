@@ -6,4 +6,5 @@
 /**
  * Internals for JDBC batching support.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.engine.jdbc.batch.internal;

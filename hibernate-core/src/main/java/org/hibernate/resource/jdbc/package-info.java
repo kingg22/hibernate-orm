@@ -9,4 +9,5 @@
  * @see org.hibernate.resource.jdbc.LogicalConnection
  * @see org.hibernate.resource.jdbc.ResourceRegistry
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.resource.jdbc;

@@ -17,6 +17,7 @@
  * @see org.hibernate.type.descriptor.converter.spi.BasicValueConverter
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.type.descriptor.converter.spi;
 
 import org.hibernate.Incubating;

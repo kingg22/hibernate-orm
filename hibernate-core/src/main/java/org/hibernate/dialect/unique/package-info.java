@@ -8,4 +8,5 @@
  *
  * @see org.hibernate.dialect.unique.UniqueDelegate
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.dialect.unique;

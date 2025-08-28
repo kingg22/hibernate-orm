@@ -7,6 +7,7 @@
  * Support for tuples in SQM.
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.sqm.tuple;
 
 import org.hibernate.Incubating;

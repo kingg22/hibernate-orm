@@ -46,4 +46,5 @@
  * Note that query result caching does not go through an access strategy; those caches are managed directly against
  * the underlying {@link org.hibernate.cache.spi.QueryResultsRegion}.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.cache.spi.access;

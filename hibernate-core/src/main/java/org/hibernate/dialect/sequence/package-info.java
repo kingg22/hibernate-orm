@@ -8,4 +8,5 @@
  *
  * @see org.hibernate.dialect.sequence.SequenceSupport
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.dialect.sequence;

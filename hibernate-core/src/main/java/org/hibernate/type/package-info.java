@@ -91,4 +91,5 @@
  * @see org.hibernate.type.Type
  * @see org.hibernate.type.SqlTypes
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.type;

@@ -21,4 +21,5 @@
  *           transforms this boot-time metamodel to its runtime
  *           {@linkplain org.hibernate.metamodel.mapping mapping metamodel}.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.boot.model;

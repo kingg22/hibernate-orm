@@ -6,4 +6,5 @@
 /**
  * Implementation of the event listener registration service.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.event.service.internal;

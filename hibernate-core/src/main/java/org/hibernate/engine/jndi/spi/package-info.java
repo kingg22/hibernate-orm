@@ -6,4 +6,5 @@
 /**
  * The SPI contracts for integration with JNDI.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.engine.jndi.spi;

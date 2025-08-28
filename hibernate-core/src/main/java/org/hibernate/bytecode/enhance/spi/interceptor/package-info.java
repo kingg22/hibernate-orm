@@ -6,4 +6,5 @@
 /**
  * Support for bytecode interceptor implementations.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.bytecode.enhance.spi.interceptor;

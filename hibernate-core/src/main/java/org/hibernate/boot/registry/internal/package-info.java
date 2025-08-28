@@ -6,4 +6,5 @@
 /**
  * The internals for building service registries.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.boot.registry.internal;

@@ -6,4 +6,5 @@
 /**
  * Models the fetch profiles defined by the application.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.engine.profile;

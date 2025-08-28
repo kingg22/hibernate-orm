@@ -33,4 +33,5 @@
  * @see org.hibernate.query.hql.spi.SqmQueryImplementor
  * @see org.hibernate.query.sqm.spi.NamedSqmQueryMemento
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.hql;

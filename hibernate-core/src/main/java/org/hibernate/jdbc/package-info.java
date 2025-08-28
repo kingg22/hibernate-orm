@@ -46,4 +46,5 @@
  * @see org.hibernate.jdbc.ReturningWork
  * @see org.hibernate.jdbc.Expectation
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.jdbc;

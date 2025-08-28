@@ -25,4 +25,5 @@
  * <li>{@code org.hibernate.cache.jcache.internal.JCacheRegionFactory} in {@code hibernate-jcache}.
  * </ul>
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.cache.spi.support;

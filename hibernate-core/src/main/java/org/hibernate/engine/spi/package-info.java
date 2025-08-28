@@ -7,4 +7,5 @@
  * This package defines some central internal SPI abstractions
  * used throughout the implementation of Hibernate.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.engine.spi;

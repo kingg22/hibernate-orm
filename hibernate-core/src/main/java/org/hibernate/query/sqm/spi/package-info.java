@@ -6,4 +6,5 @@
 /**
  * SPI-level SQM contracts
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.sqm.spi;

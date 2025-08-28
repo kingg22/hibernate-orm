@@ -6,4 +6,5 @@
 /**
  * The class loading service SPI.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.boot.registry.classloading.spi;

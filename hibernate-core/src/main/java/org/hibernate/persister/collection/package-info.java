@@ -6,4 +6,5 @@
 /**
  * This package abstracts persistence mechanisms for collections.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.persister.collection;

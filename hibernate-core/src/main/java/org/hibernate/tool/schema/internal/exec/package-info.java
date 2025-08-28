@@ -6,4 +6,5 @@
 /**
  * Support for exporting generated DDL to the database or to SQL scripts.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.tool.schema.internal.exec;

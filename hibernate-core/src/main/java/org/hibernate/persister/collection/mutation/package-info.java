@@ -14,6 +14,7 @@
  *          and {@link org.hibernate.persister.collection.OneToManyPersister}.
  */
 @Incubating
+@org.jspecify.annotations.NullMarked
 package org.hibernate.persister.collection.mutation;
 
 import org.hibernate.Incubating;

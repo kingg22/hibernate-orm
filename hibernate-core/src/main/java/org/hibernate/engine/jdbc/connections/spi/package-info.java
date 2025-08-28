@@ -21,4 +21,5 @@
  * @see org.hibernate.engine.jdbc.connections.spi.ConnectionProvider
  * @see org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.engine.jdbc.connections.spi;

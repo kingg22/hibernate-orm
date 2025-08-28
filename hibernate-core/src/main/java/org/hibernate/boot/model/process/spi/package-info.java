@@ -8,4 +8,5 @@
  * {@linkplain org.hibernate.boot.MetadataSources mapping sources} into
  * the {@link org.hibernate.boot.Metadata} reference.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.boot.model.process.spi;

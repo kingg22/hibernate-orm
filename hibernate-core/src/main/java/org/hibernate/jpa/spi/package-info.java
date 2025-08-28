@@ -11,4 +11,5 @@
  *
  * @see org.hibernate.jpa.spi.JpaCompliance
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.jpa.spi;

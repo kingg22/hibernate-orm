@@ -59,4 +59,5 @@
  *     by Hibernate.
  * </ul>
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.jpa;

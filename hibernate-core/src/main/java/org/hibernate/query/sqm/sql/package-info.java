@@ -10,4 +10,5 @@
  * @see org.hibernate.query.sqm.sql.SqmTranslator
  * @see org.hibernate.query.sqm.sql.SqmTranslatorFactory
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.query.sqm.sql;

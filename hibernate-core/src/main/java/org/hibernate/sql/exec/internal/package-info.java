@@ -6,4 +6,5 @@
 /**
  * Implementation of the SPI for execution of SQL statements via JDBC.
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.sql.exec.internal;

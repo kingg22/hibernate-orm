@@ -22,4 +22,5 @@
  * 		</li>
  * </ol>
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.bytecode;

@@ -6,4 +6,5 @@
 /**
  * Support for JNDI within Hibernate
  */
+@org.jspecify.annotations.NullMarked
 package org.hibernate.engine.jndi;
