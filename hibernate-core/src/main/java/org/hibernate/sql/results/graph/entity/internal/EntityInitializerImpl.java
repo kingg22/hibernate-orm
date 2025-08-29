@@ -79,7 +79,6 @@ import org.hibernate.type.ManyToOneType;
 import org.hibernate.type.Type;
 import org.hibernate.type.descriptor.java.MutabilityPlan;
 
-import org.checkerframework.checker.nullness.qual.EnsuresNonNull;
 import org.jspecify.annotations.Nullable;
 
 import static org.hibernate.bytecode.enhance.spi.LazyPropertyInitializer.UNFETCHED_PROPERTY;
@@ -715,7 +714,6 @@ public class EntityInitializerImpl extends AbstractInitializer<EntityInitializer
 		}
 	}
 
-	@EnsuresNonNull( "data.entityKey" )
 	protected void resolveEntityKey(EntityInitializerData data, Object id) {
 		EntityPersister concreteDescriptor = data.concreteDescriptor;
 		if ( concreteDescriptor == null ) {

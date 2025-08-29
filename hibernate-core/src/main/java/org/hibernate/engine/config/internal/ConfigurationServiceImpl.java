@@ -17,8 +17,8 @@ import org.hibernate.service.spi.ServiceRegistryImplementor;
 
 import org.jboss.logging.Logger;
 
+import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
-import org.checkerframework.checker.nullness.qual.PolyNull;
 
 /**
  * The standard {@link ConfigurationService} implementation.
@@ -60,7 +60,7 @@ public class ConfigurationServiceImpl implements ConfigurationService, ServiceRe
 	}
 
 	@Override
-	public <T> @PolyNull T getSetting(String name, Converter<T> converter, @PolyNull T defaultValue) {
+	public <T> @Nullable T getSetting(String name, Converter<T> converter, @Nullable T defaultValue) {
 		final Object value = settings.get( name );
 		if ( value == null ) {
 			return defaultValue;
@@ -70,7 +70,7 @@ public class ConfigurationServiceImpl implements ConfigurationService, ServiceRe
 	}
 
 	@Override
-	public <T> @PolyNull T getSetting(String name, Class<T> expected, @PolyNull T defaultValue) {
+	public <T> @Nullable T getSetting(String name, Class<T> expected, @Nullable T defaultValue) {
 		final Object value = settings.get( name );
 		final T target = cast( expected, value );
 		return target !=null ? target : defaultValue;

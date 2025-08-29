@@ -18,7 +18,7 @@ import org.hibernate.property.access.spi.SetterFieldImpl;
 import org.hibernate.property.access.spi.SetterMethodImpl;
 
 import jakarta.persistence.AccessType;
-import org.checkerframework.checker.nullness.qual.PolyNull;
+import org.jspecify.annotations.Nullable;
 
 import static org.hibernate.internal.util.ReflectHelper.findSetterMethod;
 import static org.hibernate.internal.util.ReflectHelper.getterMethodOrNull;
@@ -85,7 +85,7 @@ public class PropertyAccessMixedImpl implements PropertyAccess {
 		return new GetterMethodImpl( containerJavaType, propertyName, method );
 	}
 
-	private static @PolyNull Setter propertySetter(Class<?> containerJavaType, String propertyName, @PolyNull Method method) {
+	private static @Nullable Setter propertySetter(Class<?> containerJavaType, String propertyName, @Nullable Method method) {
 		return method == null ? null : new SetterMethodImpl( containerJavaType, propertyName, method );
 	}
 

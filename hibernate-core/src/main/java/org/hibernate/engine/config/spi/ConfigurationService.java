@@ -6,9 +6,9 @@ package org.hibernate.engine.config.spi;
 
 import java.util.Map;
 
-import org.checkerframework.checker.nullness.qual.PolyNull;
 import org.hibernate.service.Service;
 
+import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
 /**
@@ -51,7 +51,7 @@ public interface ConfigurationService extends Service {
 	 *
 	 * @return The converted (typed) setting.  Will be the defaultValue if no such setting was defined.
 	 */
-	<T> @PolyNull T getSetting(String name, Converter<T> converter, @PolyNull T defaultValue);
+	<T> @Nullable T getSetting(String name, Converter<T> converter, @Nullable T defaultValue);
 
 	/**
 	 * Get the named setting.  Differs from the form taking a Converter in that here we expect to have a simple
@@ -64,7 +64,7 @@ public interface ConfigurationService extends Service {
 	 *
 	 * @return The converted (typed) setting.  Will be the defaultValue if no such setting was defined.
 	 */
-	<T> @PolyNull T getSetting(String name, Class<T> expected, @PolyNull T defaultValue);
+	<T> @Nullable T getSetting(String name, Class<T> expected, @Nullable T defaultValue);
 
 	/**
 	 * Simple conversion contract for converting an untyped object to a specified type.
