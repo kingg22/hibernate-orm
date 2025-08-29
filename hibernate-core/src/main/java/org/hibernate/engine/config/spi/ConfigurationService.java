@@ -6,11 +6,10 @@ package org.hibernate.engine.config.spi;
 
 import java.util.Map;
 
+import org.checkerframework.checker.nullness.qual.PolyNull;
 import org.hibernate.service.Service;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jspecify.annotations.Nullable;
-import org.checkerframework.checker.nullness.qual.PolyNull;
 
 /**
  * Provides access to the initial user-provided configuration values.  Generally speaking
@@ -80,6 +79,6 @@ public interface ConfigurationService extends Service {
 		 *
 		 * @return The converted (typed) value.
 		 */
-		@NonNull T convert(Object value);
+		T convert(Object value);
 	}
 }

@@ -23,7 +23,6 @@ import org.hibernate.type.Type;
 
 import org.jboss.logging.Logger;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jspecify.annotations.Nullable;
 
 import static org.hibernate.engine.internal.CacheHelper.fromSharedCache;
@@ -198,7 +197,7 @@ public class BatchFetchQueue {
 	public <T> void collectBatchLoadableEntityIds(
 			final int domainBatchSize,
 			IndexedConsumer<T> collector,
-			final @NonNull T loadingId,
+			final T loadingId,
 			final EntityMappingType entityDescriptor) {
 		// make sure we load the id being loaded in the batch!
 		collector.accept( 0, loadingId );
@@ -338,7 +337,7 @@ public class BatchFetchQueue {
 	public <T> void collectBatchLoadableCollectionKeys(
 			int batchSize,
 			IndexedConsumer<T> collector,
-			@NonNull T keyBeingLoaded,
+			T keyBeingLoaded,
 			PluralAttributeMapping pluralAttributeMapping) {
 		collector.accept( 0, keyBeingLoaded );
 

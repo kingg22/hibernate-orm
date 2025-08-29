@@ -4,7 +4,6 @@
  */
 package org.hibernate.context.spi;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.hibernate.Incubating;
 
 /**
@@ -32,5 +31,5 @@ public interface TenantSchemaMapper<T> {
 	 *
 	 * @see org.hibernate.cfg.MultiTenancySettings#MULTI_TENANT_SCHEMA_MAPPER
 	 */
-	@NonNull String schemaName(@NonNull T tenantIdentifier);
+	String schemaName(T tenantIdentifier);
 }

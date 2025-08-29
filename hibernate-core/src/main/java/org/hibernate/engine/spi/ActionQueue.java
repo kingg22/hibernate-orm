@@ -55,7 +55,6 @@ import org.hibernate.type.EntityType;
 import org.hibernate.type.ForeignKeyDirection;
 import org.hibernate.type.Type;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jspecify.annotations.Nullable;
 
 import static org.hibernate.proxy.HibernateProxy.extractLazyInitializer;
@@ -984,7 +983,7 @@ public class ActionQueue {
 		protected SessionImplementor session;
 		// Concurrency handling required when transaction completion process is dynamically registered
 		// inside event listener (HHH-7478).
-		protected ConcurrentLinkedQueue<@NonNull T> processes = new ConcurrentLinkedQueue<>();
+		protected ConcurrentLinkedQueue<T> processes = new ConcurrentLinkedQueue<>();
 
 		private AbstractTransactionCompletionProcessQueue(SessionImplementor session) {
 			this.session = session;

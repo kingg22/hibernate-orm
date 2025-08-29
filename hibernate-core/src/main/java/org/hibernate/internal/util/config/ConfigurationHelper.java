@@ -11,7 +11,6 @@ import java.util.Properties;
 import java.util.StringTokenizer;
 import java.util.function.Supplier;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.hibernate.Incubating;
 import org.hibernate.cfg.MappingSettings;
 import org.hibernate.dialect.Dialect;
@@ -623,7 +622,6 @@ public final class ConfigurationHelper {
 		public static final TypeCodeConverter INSTANCE = new TypeCodeConverter();
 
 		@Override
-		@NonNull
 		public Integer convert(Object value) {
 			if ( value instanceof Number number ) {
 				return number.intValue();

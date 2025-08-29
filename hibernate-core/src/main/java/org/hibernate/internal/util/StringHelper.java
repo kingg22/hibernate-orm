@@ -17,7 +17,6 @@ import java.util.regex.Pattern;
 import org.hibernate.dialect.Dialect;
 import org.hibernate.loader.internal.AliasConstantsHelper;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jspecify.annotations.Nullable;
 
 import static java.lang.Character.isDigit;
@@ -858,7 +857,7 @@ public final class StringHelper {
 		return buffer.toString();
 	}
 
-	public static String coalesce(@NonNull String fallbackValue, @NonNull String... values) {
+	public static String coalesce(String fallbackValue, String... values) {
 		for ( int i = 0; i < values.length; i++ ) {
 			if ( isNotEmpty( values[i] ) ) {
 				return values[i];
@@ -867,7 +866,7 @@ public final class StringHelper {
 		return fallbackValue;
 	}
 
-	public static String coalesce(@NonNull String fallbackValue, String value) {
+	public static String coalesce(String fallbackValue, String value) {
 		if ( isNotEmpty( value ) ) {
 			return value;
 		}
