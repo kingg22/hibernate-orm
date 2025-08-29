@@ -34,8 +34,6 @@ dependencies {
 
     implementation libs.antlrRuntime
 
-    compileOnly libs.checkerFramework
-
     compileOnly jakartaLibs.jacc
     compileOnly jakartaLibs.validation
     compileOnly jakartaLibs.cdi
@@ -61,9 +59,6 @@ dependencies {
     testImplementation "joda-time:joda-time:2.3"
     testImplementation jdbcLibs.h2
     testImplementation libs.hibernateModelsJandex
-
-    testCompileOnly libs.checkerFramework
-
     testRuntimeOnly libs.byteBuddy
     testRuntimeOnly testLibs.weld
     testRuntimeOnly testLibs.wildFlyTxnClient
