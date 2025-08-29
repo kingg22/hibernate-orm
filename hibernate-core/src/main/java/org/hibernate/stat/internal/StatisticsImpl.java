@@ -29,7 +29,6 @@ import org.hibernate.service.Service;
 import org.hibernate.stat.Statistics;
 import org.hibernate.stat.spi.StatisticsImplementor;
 
-import org.checkerframework.checker.initialization.qual.UnknownInitialization;
 import org.jspecify.annotations.Nullable;
 
 import static org.hibernate.internal.CoreLogging.messageLogger;
@@ -215,7 +214,7 @@ public class StatisticsImpl implements StatisticsImplementor, Service {
 		log.statisticsReset();
 	}
 
-	private void resetStart(@UnknownInitialization StatisticsImpl this) {
+	private void resetStart(StatisticsImpl this) {
 		startTime = Instant.now();
 	}
 

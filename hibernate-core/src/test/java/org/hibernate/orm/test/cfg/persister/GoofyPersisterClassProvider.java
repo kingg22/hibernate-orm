@@ -13,7 +13,6 @@ import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.hibernate.Filter;
 import org.hibernate.HibernateException;
 import org.hibernate.LockMode;
@@ -82,6 +81,7 @@ import org.hibernate.type.BasicType;
 import org.hibernate.type.CollectionType;
 import org.hibernate.type.Type;
 import org.hibernate.type.descriptor.java.JavaType;
+import org.jspecify.annotations.Nullable;
 
 /**
  * @author Emmanuel Bernard

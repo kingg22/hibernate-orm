@@ -8,7 +8,6 @@ import java.util.Map;
 
 import org.hibernate.service.Service;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
 /**

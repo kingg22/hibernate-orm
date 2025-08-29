@@ -6,7 +6,6 @@ package org.hibernate.orm.test.multitenancy;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.hibernate.community.dialect.InformixDialect;
 import org.hibernate.context.spi.CurrentTenantIdentifierResolver;
 import org.hibernate.context.spi.TenantSchemaMapper;
@@ -76,7 +75,7 @@ public class SchemaBasedMultitenancyTest {
 
 	public static class MyResolver implements CurrentTenantIdentifierResolver<String> {
 		@Override
-		public @NonNull String resolveCurrentTenantIdentifier() {
+		public String resolveCurrentTenantIdentifier() {
 			return currentTenantIdentifier;
 		}
 
@@ -88,7 +87,7 @@ public class SchemaBasedMultitenancyTest {
 
 	public static class MyMapper implements TenantSchemaMapper<String> {
 		@Override
-		public @NonNull String schemaName(@NonNull String tenantIdentifier) {
+		public String schemaName(String tenantIdentifier) {
 			return tenantIdentifier;
 		}
 	}

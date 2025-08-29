@@ -21,13 +21,12 @@ import org.hibernate.type.CustomType;
 import org.hibernate.type.spi.TypeConfiguration;
 import org.hibernate.usertype.DynamicParameterizedType;
 import org.hibernate.usertype.UserType;
+import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
 import java.util.List;
 import java.util.function.Supplier;
-
-import org.checkerframework.checker.nullness.qual.Nullable;
 
 import static org.junit.jupiter.api.Assertions.*;
 

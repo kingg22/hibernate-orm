@@ -5,7 +5,6 @@
 package org.hibernate.orm.test.mapping.type.java;
 
 import jakarta.persistence.AttributeConverter;
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.hibernate.dialect.Dialect;
 import org.hibernate.testing.orm.junit.JiraKey;
 import org.hibernate.type.NumericBooleanConverter;
@@ -17,6 +16,7 @@ import org.hibernate.type.descriptor.java.JavaType;
 import org.hibernate.type.descriptor.java.StringJavaType;
 import org.hibernate.type.descriptor.jdbc.IntegerJdbcType;
 import org.hibernate.type.descriptor.jdbc.VarcharJdbcType;
+import org.jspecify.annotations.Nullable;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
