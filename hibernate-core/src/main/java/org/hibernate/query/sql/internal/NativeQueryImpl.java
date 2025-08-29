@@ -20,7 +20,7 @@ import java.util.function.Supplier;
 
 import jakarta.persistence.PessimisticLockScope;
 import jakarta.persistence.Timeout;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.CacheMode;
 import org.hibernate.FlushMode;
 import org.hibernate.Locking;

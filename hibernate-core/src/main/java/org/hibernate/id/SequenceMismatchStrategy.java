@@ -6,7 +6,7 @@ package org.hibernate.id;
 
 import org.hibernate.HibernateException;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Describes the strategy for handling the mismatch between a database sequence configuration and

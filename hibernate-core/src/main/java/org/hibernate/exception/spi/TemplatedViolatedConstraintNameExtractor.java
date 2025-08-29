@@ -9,7 +9,7 @@ import java.util.function.Function;
 
 import org.hibernate.internal.util.NullnessUtil;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Extracts a violated database constraint name from an error message

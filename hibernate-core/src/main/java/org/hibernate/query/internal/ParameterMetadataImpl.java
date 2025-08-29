@@ -29,7 +29,7 @@ import org.hibernate.query.spi.QueryParameterImplementor;
 import org.hibernate.query.sqm.tree.expression.SqmParameter;
 
 import jakarta.persistence.Parameter;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import static java.util.Collections.emptyList;
 import static java.util.Collections.emptySet;

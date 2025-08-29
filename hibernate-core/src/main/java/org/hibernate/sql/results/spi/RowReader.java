@@ -10,7 +10,7 @@ import org.hibernate.engine.spi.EntityKey;
 import org.hibernate.sql.results.jdbc.spi.RowProcessingState;
 import org.hibernate.type.descriptor.java.JavaType;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Coordinates the process of reading a single result values row

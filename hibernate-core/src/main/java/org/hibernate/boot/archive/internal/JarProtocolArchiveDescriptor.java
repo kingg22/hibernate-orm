@@ -6,7 +6,7 @@ package org.hibernate.boot.archive.internal;
 
 import java.net.URL;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.AssertionFailure;
 import org.hibernate.boot.archive.spi.ArchiveContext;
 import org.hibernate.boot.archive.spi.ArchiveDescriptor;

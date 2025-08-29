@@ -11,7 +11,7 @@ import jakarta.transaction.Transaction;
 import jakarta.transaction.TransactionManager;
 import jakarta.transaction.UserTransaction;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import org.hibernate.engine.transaction.jta.platform.spi.JtaPlatform;
 

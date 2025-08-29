@@ -7,7 +7,7 @@ package org.hibernate.engine.spi;
 import java.util.Set;
 import java.util.UUID;
 import jakarta.persistence.TransactionRequiredException;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import org.hibernate.FlushMode;
 import org.hibernate.HibernateException;

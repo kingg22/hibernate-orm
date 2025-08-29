@@ -4,7 +4,7 @@
  */
 package org.hibernate.engine.spi;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Represents the status of an entity with respect to

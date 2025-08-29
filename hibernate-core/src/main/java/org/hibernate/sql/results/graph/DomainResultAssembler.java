@@ -10,7 +10,7 @@ import org.hibernate.Incubating;
 import org.hibernate.sql.results.jdbc.spi.RowProcessingState;
 import org.hibernate.type.descriptor.java.JavaType;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Responsible for "assembling" a result for inclusion in the domain query

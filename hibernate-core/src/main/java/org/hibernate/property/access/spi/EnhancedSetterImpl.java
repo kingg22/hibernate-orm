@@ -11,7 +11,7 @@ import java.lang.reflect.Field;
 import org.hibernate.Internal;
 import org.hibernate.property.access.internal.AbstractFieldSerialForm;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import static org.hibernate.property.access.internal.AccessStrategyHelper.determineEnhancementState;
 import static org.hibernate.property.access.internal.AccessStrategyHelper.handleEnhancedInjection;

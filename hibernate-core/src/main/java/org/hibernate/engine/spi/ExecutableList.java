@@ -20,7 +20,7 @@ import org.hibernate.action.spi.Executable;
 import org.hibernate.event.spi.EventSource;
 import org.hibernate.internal.util.collections.CollectionHelper;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * A list of {@link Executable executeble actions}. Responsible for

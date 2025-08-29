@@ -22,7 +22,7 @@ import org.hibernate.query.sqm.tree.from.SqmRoot;
 
 import jakarta.persistence.criteria.Path;
 import jakarta.persistence.metamodel.SingularAttribute;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * @since 6.5

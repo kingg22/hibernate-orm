@@ -5,7 +5,7 @@
 package org.hibernate.persister.collection;
 
 import jakarta.persistence.metamodel.PluralAttribute;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.AssertionFailure;
 import org.hibernate.Filter;
 import org.hibernate.HibernateException;

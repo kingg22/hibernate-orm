@@ -7,7 +7,7 @@ package org.hibernate.dialect;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.TemporalType;
 import jakarta.persistence.Timeout;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.HibernateException;
 import org.hibernate.Incubating;
 import org.hibernate.Internal;

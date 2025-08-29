@@ -4,7 +4,7 @@
  */
 package org.hibernate.sql.results.graph.embeddable.internal;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.engine.FetchTiming;
 import org.hibernate.graph.spi.GraphHelper;
 import org.hibernate.graph.spi.GraphImplementor;

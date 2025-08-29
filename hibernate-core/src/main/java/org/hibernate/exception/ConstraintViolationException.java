@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import org.hibernate.JDBCException;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * A {@link JDBCException} indicating that the requested DML operation

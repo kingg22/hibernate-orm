@@ -33,7 +33,7 @@ import org.hibernate.sql.ast.tree.expression.XmlAttributes;
 import org.hibernate.type.SqlTypes;
 import org.hibernate.type.spi.TypeConfiguration;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import static org.hibernate.query.sqm.produce.function.FunctionParameterType.STRING;
 

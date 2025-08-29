@@ -7,7 +7,7 @@ package org.hibernate.bytecode.spi;
 import java.security.ProtectionDomain;
 
 import jakarta.persistence.spi.TransformerException;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * A persistence provider provides an instance of this interface to the

@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 import org.hibernate.metamodel.mapping.JdbcMapping;
 import org.hibernate.resource.beans.spi.ManagedBean;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Represents the definition of a {@link org.hibernate.Filter filter}.

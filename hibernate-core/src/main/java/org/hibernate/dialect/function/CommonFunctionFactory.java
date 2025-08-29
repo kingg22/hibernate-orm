@@ -7,7 +7,7 @@ package org.hibernate.dialect.function;
 import java.util.Date;
 import java.util.Arrays;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.boot.model.FunctionContributions;
 import org.hibernate.dialect.Dialect;
 

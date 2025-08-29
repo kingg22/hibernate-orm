@@ -4,7 +4,7 @@
  */
 package org.hibernate.dialect.function.json;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.dialect.function.array.DdlTypeHelper;
 import org.hibernate.query.sqm.tuple.internal.AnonymousTupleTableGroupProducer;
 import org.hibernate.query.spi.QueryEngine;

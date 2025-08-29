@@ -7,7 +7,7 @@ package org.hibernate.metamodel.mapping.internal;
 import org.hibernate.metamodel.mapping.JdbcMapping;
 import org.hibernate.metamodel.mapping.SqlTypedMapping;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * @author Christian Beikov

@@ -12,7 +12,7 @@ import java.io.Serializable;
 import org.hibernate.pretty.MessageHelper;
 import org.hibernate.type.Type;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Used to uniquely key an entity instance in relation to a particular session

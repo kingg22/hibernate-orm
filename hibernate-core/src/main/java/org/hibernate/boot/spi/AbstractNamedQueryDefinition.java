@@ -12,7 +12,7 @@ import org.hibernate.FlushMode;
 import org.hibernate.LockOptions;
 import org.hibernate.boot.query.NamedQueryDefinition;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * @author Steve Ebersole

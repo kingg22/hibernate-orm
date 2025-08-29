@@ -24,7 +24,7 @@ import org.hibernate.type.Type;
 import org.jboss.logging.Logger;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import static org.hibernate.engine.internal.CacheHelper.fromSharedCache;
 import static org.hibernate.internal.util.collections.CollectionHelper.linkedMapOfSize;

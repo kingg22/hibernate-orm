@@ -4,7 +4,7 @@
  */
 package org.hibernate.query.sqm.internal;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.action.internal.BulkOperationCleanupAction;
 import org.hibernate.query.spi.DomainQueryExecutionContext;
 import org.hibernate.query.spi.NonSelectQueryPlan;

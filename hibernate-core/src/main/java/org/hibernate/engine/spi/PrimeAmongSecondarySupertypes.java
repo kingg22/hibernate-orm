@@ -9,7 +9,7 @@ import org.hibernate.engine.internal.ManagedTypeHelper;
 import org.hibernate.proxy.HibernateProxy;
 import org.hibernate.proxy.ProxyConfiguration;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * For a full explanation of the purpose of this interface see {@link ManagedTypeHelper}.

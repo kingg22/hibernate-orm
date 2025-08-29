@@ -18,7 +18,7 @@ import org.hibernate.dialect.Dialect;
 import org.hibernate.loader.internal.AliasConstantsHelper;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import static java.lang.Character.isDigit;
 import static java.lang.Character.isJavaIdentifierPart;

@@ -11,7 +11,7 @@ import org.hibernate.property.access.internal.PropertyAccessStrategyMapImpl;
 import org.hibernate.property.access.internal.PropertyAccessStrategyMixedImpl;
 import org.hibernate.property.access.internal.PropertyAccessStrategyNoopImpl;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Describes the built-in externally-nameable {@link PropertyAccessStrategy} implementations.

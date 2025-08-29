@@ -34,7 +34,7 @@ import org.jboss.logging.Logger;
 
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import static org.hibernate.engine.config.spi.StandardConverters.BOOLEAN;
 

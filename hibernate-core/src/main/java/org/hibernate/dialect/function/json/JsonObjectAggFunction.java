@@ -23,7 +23,7 @@ import org.hibernate.sql.ast.tree.predicate.Predicate;
 import org.hibernate.type.SqlTypes;
 import org.hibernate.type.spi.TypeConfiguration;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Standard json_objectagg function.

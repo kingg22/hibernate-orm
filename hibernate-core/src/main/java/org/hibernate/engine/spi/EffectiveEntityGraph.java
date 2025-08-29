@@ -14,7 +14,7 @@ import org.hibernate.graph.spi.RootGraphImplementor;
 
 import org.jboss.logging.Logger;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Think of this as the composite modeling of a graph and the semantic.

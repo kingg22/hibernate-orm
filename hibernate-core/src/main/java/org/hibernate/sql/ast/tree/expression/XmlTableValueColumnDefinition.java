@@ -4,7 +4,7 @@
  */
 package org.hibernate.sql.ast.tree.expression;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * @since 7.0

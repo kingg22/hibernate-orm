@@ -6,7 +6,7 @@ package org.hibernate.engine.spi;
 
 import org.hibernate.annotations.ResultCheckStyle;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.jdbc.Expectation;
 
 import java.util.function.Supplier;

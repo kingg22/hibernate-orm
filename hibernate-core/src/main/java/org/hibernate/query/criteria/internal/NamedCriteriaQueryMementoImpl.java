@@ -23,7 +23,7 @@ import org.hibernate.query.sqm.internal.SqmSelectionQueryImpl;
 import org.hibernate.query.sqm.spi.NamedSqmQueryMemento;
 import org.hibernate.query.sqm.tree.SqmStatement;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.query.sqm.tree.select.SqmSelectStatement;
 
 public class NamedCriteriaQueryMementoImpl<E> extends AbstractNamedQueryMemento<E>

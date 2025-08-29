@@ -10,7 +10,7 @@ import org.hibernate.internal.CoreLogging;
 
 import org.jboss.logging.Logger;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * A strategy for determining if an identifier value is an identifier of

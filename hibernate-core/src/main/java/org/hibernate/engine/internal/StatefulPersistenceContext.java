@@ -64,7 +64,7 @@ import org.hibernate.sql.results.spi.LoadContexts;
 
 import org.jboss.logging.Logger;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import static java.util.Collections.emptyIterator;
 import static java.util.Collections.emptyMap;

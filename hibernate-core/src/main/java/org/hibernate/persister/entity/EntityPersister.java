@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 import jakarta.persistence.Entity;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.HibernateException;
 import org.hibernate.Incubating;
 import org.hibernate.Internal;

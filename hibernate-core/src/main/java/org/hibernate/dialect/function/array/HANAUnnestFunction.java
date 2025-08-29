@@ -59,7 +59,7 @@ import org.hibernate.type.Type;
 import org.hibernate.type.descriptor.java.BasicPluralJavaType;
 import org.hibernate.type.descriptor.sql.spi.DdlTypeRegistry;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * HANA unnest function.

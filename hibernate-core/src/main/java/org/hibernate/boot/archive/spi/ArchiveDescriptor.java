@@ -4,7 +4,7 @@
  */
 package org.hibernate.boot.archive.spi;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Models a logical archive, which might be <ul>

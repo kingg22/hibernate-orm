@@ -4,7 +4,7 @@
  */
 package org.hibernate.engine.spi;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * The base contract for determining transient status versus detached status.

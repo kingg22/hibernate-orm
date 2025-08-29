@@ -7,7 +7,7 @@ package org.hibernate.stat;
 import java.time.Instant;
 import java.util.Map;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Exposes statistics collected from all sessions belonging to a given

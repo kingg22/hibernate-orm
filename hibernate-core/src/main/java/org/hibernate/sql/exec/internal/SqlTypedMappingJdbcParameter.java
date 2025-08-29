@@ -4,7 +4,7 @@
  */
 package org.hibernate.sql.exec.internal;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.metamodel.mapping.SqlTypedMapping;
 
 /**

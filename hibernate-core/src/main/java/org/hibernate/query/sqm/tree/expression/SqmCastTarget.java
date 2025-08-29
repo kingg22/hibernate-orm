@@ -4,7 +4,7 @@
  */
 package org.hibernate.query.sqm.tree.expression;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.metamodel.model.domain.ReturnableType;
 import org.hibernate.query.criteria.JpaCastTarget;
 import org.hibernate.query.sqm.NodeBuilder;

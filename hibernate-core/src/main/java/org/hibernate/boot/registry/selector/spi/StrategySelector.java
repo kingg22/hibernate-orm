@@ -9,7 +9,7 @@ import java.util.concurrent.Callable;
 
 import org.hibernate.service.Service;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.service.spi.Stoppable;
 
 /**

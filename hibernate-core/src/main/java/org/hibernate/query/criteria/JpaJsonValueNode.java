@@ -5,7 +5,7 @@
 package org.hibernate.query.criteria;
 
 import jakarta.persistence.criteria.Expression;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.Incubating;
 
 /**

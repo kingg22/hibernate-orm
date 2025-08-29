@@ -15,7 +15,7 @@ import org.hibernate.property.access.spi.Setter;
 import org.hibernate.property.access.spi.SetterMethodImpl;
 
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * {@link PropertyAccess} for accessing the wrapped property via get/set pair, which may be nonpublic.

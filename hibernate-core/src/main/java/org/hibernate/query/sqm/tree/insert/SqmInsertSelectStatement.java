@@ -30,7 +30,7 @@ import org.hibernate.query.sqm.tree.select.SqmSelectableNode;
 import jakarta.persistence.Tuple;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Path;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import jakarta.persistence.criteria.Subquery;
 import jakarta.persistence.metamodel.EntityType;

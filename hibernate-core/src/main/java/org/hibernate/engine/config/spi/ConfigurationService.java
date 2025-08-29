@@ -9,7 +9,7 @@ import java.util.Map;
 import org.hibernate.service.Service;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.checkerframework.checker.nullness.qual.PolyNull;
 
 /**

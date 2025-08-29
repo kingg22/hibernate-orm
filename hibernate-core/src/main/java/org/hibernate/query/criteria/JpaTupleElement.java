@@ -5,7 +5,7 @@
 package org.hibernate.query.criteria;
 
 import jakarta.persistence.TupleElement;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import org.hibernate.type.descriptor.java.EnumJavaType;
 import org.hibernate.type.descriptor.java.JavaType;

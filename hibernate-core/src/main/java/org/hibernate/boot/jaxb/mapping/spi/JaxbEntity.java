@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.hibernate.engine.OptimisticLockStyle;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * @author Steve Ebersole

@@ -5,7 +5,7 @@
 package org.hibernate.query.sqm.tree;
 
 import jakarta.persistence.criteria.AbstractQuery;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.query.criteria.JpaCteCriteria;
 import org.hibernate.query.criteria.JpaRoot;
 import org.hibernate.query.sqm.NodeBuilder;

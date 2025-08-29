@@ -4,7 +4,7 @@
  */
 package org.hibernate.boot.jaxb.mapping.spi;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * JAXB binding interface for commonality between things which

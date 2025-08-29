@@ -5,7 +5,7 @@
 package org.hibernate.query.sqm.tree.expression;
 
 import jakarta.persistence.criteria.Expression;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.internal.util.QuotingHelper;
 import org.hibernate.query.criteria.JpaCastTarget;
 import org.hibernate.query.criteria.JpaXmlTableColumnNode;

@@ -6,7 +6,7 @@ package org.hibernate.graph.spi;
 
 import org.hibernate.graph.GraphSemantic;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Contract for anything a fetch/load graph can be applied

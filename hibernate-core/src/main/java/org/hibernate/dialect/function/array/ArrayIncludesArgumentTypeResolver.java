@@ -4,7 +4,7 @@
  */
 package org.hibernate.dialect.function.array;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.metamodel.mapping.MappingModelExpressible;
 import org.hibernate.query.sqm.produce.function.FunctionArgumentTypeResolver;
 import org.hibernate.query.sqm.produce.function.internal.AbstractFunctionArgumentTypeResolver;

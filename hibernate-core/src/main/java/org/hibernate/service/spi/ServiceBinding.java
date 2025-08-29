@@ -8,7 +8,7 @@ import org.hibernate.service.Service;
 
 import org.jboss.logging.Logger;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Models a binding for a particular service.

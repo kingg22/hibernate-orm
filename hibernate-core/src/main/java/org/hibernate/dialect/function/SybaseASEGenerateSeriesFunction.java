@@ -4,7 +4,7 @@
  */
 package org.hibernate.dialect.function;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.engine.spi.SessionFactoryImplementor;
 import org.hibernate.metamodel.mapping.SelectableMapping;
 import org.hibernate.query.sqm.tuple.internal.AnonymousTupleTableGroupProducer;

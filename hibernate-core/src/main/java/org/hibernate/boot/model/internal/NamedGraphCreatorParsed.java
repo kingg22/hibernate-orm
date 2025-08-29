@@ -6,7 +6,7 @@ package org.hibernate.boot.model.internal;
 
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.UnknownEntityTypeException;
 import org.hibernate.annotations.NamedEntityGraph;
 import org.hibernate.boot.model.NamedGraphCreator;

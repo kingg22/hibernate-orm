@@ -9,7 +9,7 @@ import java.math.BigInteger;
 import java.util.Collection;
 import java.util.function.Consumer;
 import jakarta.persistence.criteria.Expression;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import org.hibernate.Internal;
 import org.hibernate.metamodel.model.domain.ReturnableType;

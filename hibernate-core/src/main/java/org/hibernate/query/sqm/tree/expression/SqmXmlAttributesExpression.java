@@ -17,7 +17,7 @@ import org.hibernate.query.sqm.tree.SqmTypedNode;
 import org.hibernate.sql.ast.tree.expression.XmlAttributes;
 
 import jakarta.persistence.criteria.Expression;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Special expression for the json_query function that also captures special syntax elements like error and empty behavior.

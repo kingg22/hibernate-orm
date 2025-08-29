@@ -8,7 +8,7 @@ import org.hibernate.Internal;
 import org.hibernate.dialect.DatabaseVersion;
 import org.hibernate.dialect.Dialect;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Contract used for logging "database information" on bootstrap

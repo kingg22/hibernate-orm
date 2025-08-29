@@ -15,7 +15,7 @@ import org.hibernate.PropertySetterAccessException;
 import org.hibernate.internal.CoreMessageLogger;
 import org.hibernate.property.access.internal.AbstractSetterMethodSerialForm;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import static org.hibernate.internal.CoreLogging.messageLogger;
 

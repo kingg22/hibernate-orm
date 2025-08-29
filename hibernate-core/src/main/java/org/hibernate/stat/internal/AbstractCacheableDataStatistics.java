@@ -11,7 +11,7 @@ import org.hibernate.cache.spi.Region;
 import org.hibernate.internal.util.NullnessUtil;
 import org.hibernate.stat.CacheableDataStatistics;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * @author Steve Ebersole

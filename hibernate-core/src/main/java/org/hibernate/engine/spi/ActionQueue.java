@@ -56,7 +56,7 @@ import org.hibernate.type.ForeignKeyDirection;
 import org.hibernate.type.Type;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import static org.hibernate.proxy.HibernateProxy.extractLazyInitializer;
 

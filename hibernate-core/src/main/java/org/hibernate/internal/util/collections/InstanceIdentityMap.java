@@ -5,7 +5,7 @@
 package org.hibernate.internal.util.collections;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.engine.spi.InstanceIdentity;
 import org.hibernate.internal.build.AllowReflection;
 

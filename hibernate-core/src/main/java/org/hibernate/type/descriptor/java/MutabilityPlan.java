@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 import org.hibernate.SharedSessionContract;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Describes the mutability aspects of a given Java type.

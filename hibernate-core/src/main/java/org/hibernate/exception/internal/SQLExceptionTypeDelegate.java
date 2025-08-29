@@ -26,7 +26,7 @@ import org.hibernate.exception.SQLGrammarException;
 import org.hibernate.exception.spi.AbstractSQLExceptionConversionDelegate;
 import org.hibernate.exception.spi.ConversionContext;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * A {@link org.hibernate.exception.spi.SQLExceptionConverter} implementation

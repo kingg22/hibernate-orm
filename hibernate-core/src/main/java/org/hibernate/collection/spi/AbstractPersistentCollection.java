@@ -37,7 +37,7 @@ import org.hibernate.type.BasicType;
 import org.hibernate.type.CompositeType;
 import org.hibernate.type.Type;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import static java.util.Collections.emptyList;
 import static org.hibernate.engine.internal.ForeignKeys.getEntityIdentifier;

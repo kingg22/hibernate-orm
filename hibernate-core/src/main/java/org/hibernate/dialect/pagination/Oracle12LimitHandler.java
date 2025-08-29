@@ -6,7 +6,7 @@ package org.hibernate.dialect.pagination;
 
 import java.util.Locale;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.LockMode;
 import org.hibernate.LockOptions;
 import org.hibernate.query.spi.Limit;

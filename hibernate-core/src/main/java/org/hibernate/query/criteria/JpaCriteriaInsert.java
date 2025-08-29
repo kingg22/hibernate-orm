@@ -9,7 +9,7 @@ import java.util.List;
 import org.hibernate.Incubating;
 
 import jakarta.persistence.criteria.Path;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * The commonalities between insert-select and insert-values.

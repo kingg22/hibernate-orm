@@ -6,7 +6,7 @@ package org.hibernate.query.sqm.sql;
 
 import jakarta.persistence.TemporalType;
 import jakarta.persistence.metamodel.SingularAttribute;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.hibernate.AssertionFailure;
 import org.hibernate.HibernateException;
 import org.hibernate.Internal;
