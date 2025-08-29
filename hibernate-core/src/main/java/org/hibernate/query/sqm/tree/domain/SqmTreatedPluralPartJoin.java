@@ -101,36 +101,42 @@ public class SqmTreatedPluralPartJoin extends SqmPluralPartJoin implements SqmTr
 		return treatTarget;
 	}
 
+	@SuppressWarnings( "NullAway" )
 	@Override
 	public SqmTreatedPluralPartJoin treatAs(Class treatJavaType) {
 		//noinspection unchecked
 		return super.treatAs( treatJavaType );
 	}
 
+	@SuppressWarnings( "NullAway" )
 	@Override
 	public SqmTreatedPluralPartJoin treatAs(EntityDomainType treatTarget) {
 		//noinspection unchecked
 		return super.treatAs( treatTarget );
 	}
 
+	@SuppressWarnings( "NullAway" )
 	@Override
 	public SqmTreatedPluralPartJoin treatAs(Class treatJavaType, String alias) {
 		//noinspection unchecked
 		return super.treatAs( treatJavaType, alias );
 	}
 
+	@SuppressWarnings( "NullAway" )
 	@Override
 	public SqmTreatedPluralPartJoin treatAs(EntityDomainType treatTarget, String alias) {
 		//noinspection unchecked
 		return super.treatAs( treatTarget, alias );
 	}
 
+	@SuppressWarnings( "NullAway" )
 	@Override
 	public SqmTreatedPluralPartJoin treatAs(Class treatJavaType, String alias, boolean fetch) {
 		//noinspection unchecked
 		return super.treatAs( treatJavaType, alias, fetch );
 	}
 
+	@SuppressWarnings( "NullAway" )
 	@Override
 	public SqmTreatedPluralPartJoin treatAs(EntityDomainType treatTarget, String alias, boolean fetch) {
 		//noinspection unchecked

@@ -102,7 +102,7 @@ public class SqmTreatedRoot extends SqmRoot implements SqmTreatedFrom {
 		return wrappedPath.getLhs();
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({"unchecked", "NullAway"})
 	@Override
 	public Object accept(SemanticQueryWalker walker) {
 		return walker.visitTreatedPath( this );

@@ -53,6 +53,7 @@ public class EmbeddableAssembler implements DomainResultAssembler {
 		return initializer;
 	}
 
+	@SuppressWarnings( "NullAway" )
 	@Override
 	public void forEachResultAssembler(BiConsumer consumer, Object arg) {
 		if ( initializer.isResultInitializer() ) {

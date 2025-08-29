@@ -115,25 +115,25 @@ public class SqmTreatedCrossJoin extends SqmCrossJoin implements SqmTreatedJoin 
 		return Objects.hash( treatTarget.getName(), wrappedPath.getNavigablePath() );
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes", "unchecked", "NullAway" })
 	@Override
 	public SqmTreatedCrossJoin treatAs(Class treatJavaType, String alias) {
 		return super.treatAs( treatJavaType, alias );
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes", "unchecked", "NullAway" })
 	@Override
 	public SqmTreatedCrossJoin treatAs(EntityDomainType treatTarget, String alias) {
 		return super.treatAs( treatTarget, alias );
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes", "unchecked", "NullAway" })
 	@Override
 	public SqmTreatedCrossJoin treatAs(Class treatAsType) {
 		return super.treatAs( treatAsType );
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes", "unchecked", "NullAway" })
 	@Override
 	public SqmTreatedCrossJoin treatAs(EntityDomainType treatAsType) {
 		return super.treatAs( treatAsType );

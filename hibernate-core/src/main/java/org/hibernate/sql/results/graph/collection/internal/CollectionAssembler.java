@@ -53,6 +53,7 @@ public class CollectionAssembler implements DomainResultAssembler {
 		initializer.resolveState( rowProcessingState );
 	}
 
+	@SuppressWarnings( "NullAway" )
 	@Override
 	public void forEachResultAssembler(BiConsumer consumer, Object arg) {
 		if ( initializer.isResultInitializer() ) {
