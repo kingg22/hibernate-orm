@@ -221,7 +221,6 @@ maven-resolver-transport-http = { group = "org.apache.maven.resolver", name = "m
 slf4j-simple = { group = "org.slf4j", name = "slf4j-simple", version.ref = "slf4j" }
 jsoup = { group = "org.jsoup", name = "jsoup", version.ref = "jsoup" }
 httpclient = { group = "org.apache.httpcomponents", name = "httpclient", version.ref = "httpclient" }
-forbiddenapis = { group = "de.thetaphi", name = "forbiddenapis", version.ref = "forbiddenapis" }
 
 [plugins]
 forbiddenapis = { id = "de.thetaphi.forbiddenapis", version.ref = "forbiddenapis" }
