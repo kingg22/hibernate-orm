@@ -4,15 +4,15 @@
  */
 
 plugins {
-	id "local.java-module"
+	id( "local.java-module" )
 }
 
-def skipJacoco = project.hasProperty('skipJacoco') ? project.getProperty('skipJacoco').toBoolean() : false
+val skipJacoco = if ( project.hasProperty("skipJacoco") ) project.property("skipJacoco").toString().toBoolean() else false
 if (!skipJacoco) {
-	plugins.apply('jacoco')
+	plugins.apply("jacoco")
 }
 
-description = 'Integration tests for running Hibernate ORM in the Java module path'
+description = "Integration tests for running Hibernate ORM in the Java module path"
 
 // See https://docs.gradle.org/6.7.1/userguide/java_testing.html#blackbox_integration_testing
 // See https://docs.gradle.org/6.7.1/samples/sample_java_modules_multi_project_with_integration_tests.html
@@ -20,16 +20,16 @@ java.modularity.inferModulePath = true
 
 
 dependencies {
-	api project( ':hibernate-core' )
-	api project( ':hibernate-envers' )
-	implementation project( ':hibernate-scan-jandex' )
+	api( projects.hibernateCore )
+	api( projects.hibernateEnvers )
+	implementation( projects.hibernateScanJandex )
 	//Provide the jakarta.cdi module, as it's required by module jakarta.transaction
 	//but not provided as transitive dependency of Narayana.
-	testRuntimeOnly( jakartaLibs.cdi )
-	testRuntimeOnly( jakartaLibs.interceptors )
+	testRuntimeOnly( libs.jakarta.cdi )
+	testRuntimeOnly( libs.jakarta.interceptors )
 }
 
-test {
-	useJUnitPlatform()
+tasks.withType<Test> {
+    useJUnitPlatform()
 }
 
