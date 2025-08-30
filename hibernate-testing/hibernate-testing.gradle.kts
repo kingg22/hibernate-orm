@@ -1,0 +1,50 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ * Copyright Red Hat Inc. and Hibernate Authors
+ */
+
+plugins {
+    id( "local.publishing-java-module" )
+    id( "local.publishing-group-relocation" )
+}
+
+description = "Support for testing Hibernate ORM functionality"
+
+dependencies {
+    api( projects.hibernateCore )
+    api( projects.hibernateCommunityDialects )
+
+    api( libs.test.junit4 )
+    api( libs.test.junit5Api )
+    api( libs.test.junit5Params )
+
+    api( libs.test.hamcrest )
+    api( libs.test.assertjCore )
+
+    api( libs.test.mockito )
+
+    api( libs.test.bytemanBmunit )
+
+    api( libs.test.jbossTxSpi ) {
+        isTransitive=false
+    }
+    api( libs.test.jbossJta ) {
+        isTransitive=false
+    }
+
+    api( "javax.money:money-api:1.1" )
+    api( "org.javamoney.moneta:moneta-core:1.4.4" ) {
+        isTransitive = false
+    }
+
+    api( libs.test.log4j )
+
+    implementation( libs.hibernateModels )
+    implementation( libs.jandex )
+    implementation( libs.test.wildFlyTxnClient )
+    implementation( libs.test.junit5Engine )
+    implementation( libs.test.junit5Launcher )
+
+    annotationProcessor( projects.hibernateProcessor )
+}
+
