@@ -4,20 +4,20 @@
  */
 
 plugins {
-    id "local.java-module"
-    id "local.publishing"
-    id "local.code-quality"
+    id( "local.java-module" )
+    id( "local.publishing" )
+    id( "local.code-quality" )
 }
 
 // Ideally this should be in `local.java-module.gradle`,
 // but we need to skip this in hibernate-gradle-plugin.
-def skipJacoco = project.hasProperty('skipJacoco') ? project.getProperty('skipJacoco').toBoolean() : false
+def skipJacoco = project.hasProperty( "skipJacoco" ) ? project.property( "skipJacoco" ).toString().toBoolean() : false
 if (!skipJacoco) {
-    plugins.apply('jacoco')
+    plugins.apply( "jacoco" )
 }
 
 configurations {
-    javadocSources {
+    register( "javadocSources" ) {
         description = "All Java sources for the project's Javadoc"
         canBeConsumed = true
         canBeResolved = false
@@ -26,37 +26,39 @@ configurations {
 }
 
 dependencies {
-    javadocSources sourceSets.main.allJava
+    javadocSources( sourceSets.main.allJava )
 }
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Publishing
 
-var publishingExtension = project.getExtensions().getByType(PublishingExtension) as PublishingExtension
-publishingExtension.publications.named("publishedArtifacts", MavenPublication) {
+var publishingExtension = project.getExtensions().getByType( PublishingExtension )
+publishingExtension.publications.named( "publishedArtifacts", MavenPublication ) {
     // Add the Java component to the main publication
-    from components.java
+    from( components.java )
 }
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Releasing
 
-def releasePrepareTask = tasks.register("releasePrepare") {
-    group "release"
-    description "See :release:releasePrepare for details.  Here we hook in testing and checks ensure publish-ability"
+def releasePrepareTask = tasks.register( "releasePrepare" ) {
+    group = "release"
+    description = "See :release:releasePrepare for details.  Here we hook in testing and checks ensure publish-ability"
 
-    dependsOn tasks.check
-    dependsOn tasks.generateMetadataFileForPublishedArtifactsPublication
-    dependsOn tasks.generatePomFileForPublishedArtifactsPublication
+    dependsOn(
+            tasks.named( "check" ),
+            tasks.named( "generateMetadataFileForPublishedArtifactsPublication" ),
+            tasks.named( "generatePomFileForPublishedArtifactsPublication" )
+    )
 }
 
 // used from the h2 CI job
-tasks.register("preVerifyRelease") {
-    group "release-prepare"
-    description "Delegates to `releasePrepare` task"
+tasks.register( "preVerifyRelease" ) {
+    group = "release-prepare"
+    description = "Delegates to `releasePrepare` task"
 
-    dependsOn releasePrepareTask
+    dependsOn( releasePrepareTask )
 }
 

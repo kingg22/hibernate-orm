@@ -4,16 +4,16 @@
  */
 
 plugins {
-    id "org.checkerframework"
-    id "de.thetaphi.forbiddenapis"
-    id "com.diffplug.spotless"
+    id( "org.checkerframework" )
+    id( "de.thetaphi.forbiddenapis" )
+    id( "com.diffplug.spotless" )
 }
 
 tasks.register( "ciCheck" ) {
     // Task used by CI builds
-    group "verification"
-    description "Checks for CI environments"
-    dependsOn tasks.check
+    group = "verification"
+    description = "Checks for CI environments"
+    dependsOn( tasks.check )
 }
 
 gradle.taskGraph.whenReady {
@@ -27,16 +27,15 @@ gradle.taskGraph.whenReady {
 
 tasks.register( "formatChecks" ) {
     // Only runs static code analysis, doesn't require compilation
-    group "verification"
-    description "Code style and formatting checks"
+    group = "verification"
+    description = "Code style and formatting checks"
 
-    dependsOn tasks.spotlessCheck
-    dependsOn tasks.enforceRules
+    dependsOn( tasks.spotlessCheck, tasks.enforceRules )
 }
 
 
-def enforceRulesTask = tasks.register('enforceRules') {
-    inputs.dir("src/main/java")
+def enforceRulesTask = tasks.register( "enforceRules" ) {
+    inputs.dir( "src/main/java" )
     doLast {
         def illegalImport = ~/^import (sun|java.awt|org.slf4j)/
         def missingNewline = ~/^\s*}\s*(else|catch|finally)/
@@ -44,27 +43,27 @@ def enforceRulesTask = tasks.register('enforceRules') {
         def equals = ~/boolean +equals\((@?\w+ )*Object \w+\)/
         def hashCode = ~/int +hashCode\(\)/
         def errors = 0
-        def tree = fileTree("src/main/java/")
-        tree.include "**/*.java"
+        def tree = fileTree( "src/main/java/" )
+        tree.include( "**/*.java" )
         tree.each { file ->
             def lineNum = 0
-            def shortName = file.path.substring(rootDir.path.length())
+            def shortName = file.path.substring( rootDir.path.length() )
             def equalsMinusHashcode = 0
             file.eachLine { line ->
                 lineNum++
                 if (line =~ illegalImport) {
                     errors++
-                    logger.error("Illegal import in ${shortName}\n${lineNum}: ${line}")
+                    logger.error( "Illegal import in ${shortName}\n${lineNum}: ${line}" )
                 }
                 if (line =~ missingNewline) {
                     errors++
-                    logger.error("Missing newline in ${shortName}\n${lineNum}: ${line}")
+                    logger.error( "Missing newline in ${shortName}\n${lineNum}: ${line}" )
                 }
                 if (line =~ lowerEll) {
                     errors++
-                    logger.error("Lowercase long literal in ${shortName}\n${lineNum}: ${line}")
+                    logger.error( "Lowercase long literal in ${shortName}\n${lineNum}: ${line}" )
                 }
-                if (!line.startsWith("//")) { //ignore commented-out code
+                if (!line.startsWith( "//" )) { //ignore commented-out code
                     if (line =~ equals) {
                         equalsMinusHashcode++
                     }
@@ -75,27 +74,29 @@ def enforceRulesTask = tasks.register('enforceRules') {
             }
             if (equalsMinusHashcode > 0) {
                 errors++
-                logger.error("Equals with missing hash code in ${shortName}")
+                logger.error( "Equals with missing hash code in ${shortName}" )
             }
             if (equalsMinusHashcode < 0) {
                 errors++
-                logger.error("Hash code with missing equals in ${shortName}")
+                logger.error( "Hash code with missing equals in ${shortName}" )
             }
         }
         if (errors > 0) {
-            throw new GradleException("Code rules were violated ($errors problems)")
+            throw new GradleException( "Code rules were violated ($errors problems)" )
         }
     }
 }
 
-tasks.check.dependsOn enforceRulesTask
+tasks.named( "check" ) {
+    dependsOn( enforceRulesTask )
+}
 
 spotless {
     //Don't fail during the check: rather than enforcing guidelines, we use this plugin to fix mistakes automatically.
-    enforceCheck false
+    enforceCheck = false
     java {
         targetExclude( "target/**/*.java" )
-        licenseHeaderFile rootProject.file("shared/config/spotless/license.java")
+        licenseHeaderFile( rootProject.file("shared/config/spotless/license.java") )
         removeUnusedImports()
         leadingSpacesToTabs( 4 )
         trimTrailingWhitespace()
@@ -103,12 +104,14 @@ spotless {
     }
 }
 
-tasks.compileJava.dependsOn tasks.spotlessJavaApply
+tasks.named( "compileJava" ) {
+    dependsOn( tasks.named( "spotlessJavaApply" ) )
+}
 
 dependencies {
-    compileOnly libs.checkerFramework
-    testCompileOnly libs.checkerFramework
-    checkerFramework libs.checkerFrameworkChecker
+    compileOnly( libs.checkerFramework )
+    testCompileOnly( libs.checkerFramework )
+    checkerFramework( libs.checkerFrameworkChecker )
 }
 
 checkerFramework {
