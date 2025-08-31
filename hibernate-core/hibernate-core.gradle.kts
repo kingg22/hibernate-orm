@@ -30,6 +30,7 @@ dependencies {
     api( projects.hibernateCoreAnnotations )
     api( projects.hibernateCoreBytecode )
     api( projects.hibernateCoreInternal )
+    api( projects.hibernateCoreService )
 
     implementation( libs.hibernateModels )
     implementation( libs.classmate )
@@ -95,6 +96,7 @@ tasks.withType<JavaCompile>().configureEach {
         project(":hibernate-core-api").sourceSets.main.get().output.asPath,
         project(":hibernate-core-bytecode").sourceSets.main.get().output.asPath,
         project(":hibernate-core-internal").sourceSets.main.get().output.asPath,
+        project(":hibernate-core-service").sourceSets.main.get().output.asPath,
     ).joinToString(pathSeparator)
 
     // need to patch modules of JPMS to add gradle modules (internal split) into the publishing module of hibernate-core
@@ -108,6 +110,7 @@ tasks.named<Jar>( "jar" ) {
         project(":hibernate-core-annotations").sourceSets.main.get().output,
         project(":hibernate-core-bytecode").sourceSets.main.get().output,
         project(":hibernate-core-internal").sourceSets.main.get().output,
+        project(":hibernate-core-service").sourceSets.main.get().output,
     )
 }
 
