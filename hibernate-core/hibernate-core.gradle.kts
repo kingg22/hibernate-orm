@@ -26,6 +26,10 @@ dependencies {
     api( libs.jakarta.jpa )
     api( libs.jakarta.jta )
 
+    api( projects.hibernateCoreApi )
+    api( projects.hibernateCoreAnnotations )
+    api( projects.hibernateCoreBytecode )
+
     implementation( libs.hibernateModels )
     implementation( libs.classmate )
     implementation( libs.byteBuddy )
@@ -80,6 +84,26 @@ tasks.jar {
     manifest {
         attributes( "Main-Class" to "org.hibernate.Version" )
     }
+}
+
+tasks.withType<JavaCompile>().configureEach {
+    val pathSeparator = File.pathSeparator
+
+    val patchPaths = listOf(
+        project(":hibernate-core-annotations").sourceSets.main.get().output.asPath,
+        project(":hibernate-core-api").sourceSets.main.get().output.asPath,
+        project(":hibernate-core-bytecode").sourceSets.main.get().output.asPath,
+    ).joinToString(pathSeparator)
+
+    // need to patch modules of JPMS to add gradle modules (internal split) into the publishing module of hibernate-core
+    // all gradle modules of hibernate core is unnamed module because JPMS prohibits split package
+    options.compilerArgs.addAll(listOf("--patch-module", "org.hibernate.orm.core=$patchPaths"))
+}
+
+tasks.named<Jar>( "jar" ) {
+    from( project(":hibernate-core-api").sourceSets.main.get().output )
+    from( project(":hibernate-core-annotations").sourceSets.main.get().output )
+    from( project(":hibernate-core-bytecode").sourceSets.main.get().output )
 }
 
 sourceSets {
@@ -243,8 +267,7 @@ tasks.withType<Test>().configureEach {
 
 tasks.named<Javadoc>("javadoc") {
     options {
-        // investigate why we need to do read and can't pass the file
-        overview = rootProject.file("shared/javadoc/overview.html").readText()
+        overview = rootProject.file("shared/javadoc/overview.html").name
         exclude("**/internal/**", "org/hibernate/boot/jaxb/**", "org/hibernate/tuple/**")
     }
 }
