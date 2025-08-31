@@ -1,0 +1,110 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ * Copyright Red Hat Inc. and Hibernate Authors
+ */
+plugins {
+    id( "java-library" )
+    id( "local.module" )
+    id( "local.javadoc" )
+    id( "local.databases" )
+
+    id( "biz.aQute.bnd.builder" )
+
+    id( "org.hibernate.orm.database-service" )
+    id( "org.hibernate.orm.build.java-module" ) // IF enforce JPMS can be a problem
+
+    id( "build-dashboard" )
+    id( "project-report" )
+
+    id( "local.code-quality" )
+}
+
+// THIS IS A COPY OF local.java-module.gradle but without a explicit java module name because it prohibits split package
+
+dependencies {
+    implementation( libs.logging )
+
+    compileOnly( libs.loggingAnnotations )
+    // Used for compiling some Oracle specific JdbcTypes
+    compileOnly( libs.jdbc.oracle )
+    compileOnly( libs.jdbc.oracleJdbcJacksonOsonExtension ) {
+        exclude(group: "com.oracle.database.jdbc", module: "ojdbc8")
+    }
+
+    annotationProcessor( libs.loggingProcessor )
+    annotationProcessor( libs.logging )
+    annotationProcessor( libs.loggingAnnotations )
+
+    constraints {
+        implementation( "org.apache.logging.log4j:log4j-core" ) {
+            version {
+                strictly( "[2.17.1, 3[" )
+                prefer( "2.17.1" )
+            }
+            because(
+                    "CVE-2021-44228, CVE-2021-45046, CVE-2021-45105, CVE-2021-44832:" +
+                            "Log4j vulnerable to remote code execution and other critical security vulnerabilities"
+            )
+        }
+    }
+}
+
+java {
+    // submódulos NO publican JAR independiente
+    withJavadocJar()
+    withSourcesJar()
+}
+
+tasks.named("jar", Jar) {
+    // No module name ni publicación → solo compilación
+    manifest.attributes.remove("Automatic-Module-Name")
+    archiveClassifier.set("classes") // para diferenciarlos
+    enabled = false // evitamos generar un jar "final"
+}
+
+tasks.withType( JavaCompile ).configureEach {
+    options.encoding = "UTF-8"
+    options.warnings = false
+    options.fork = true
+    options.forkOptions.memoryMaximumSize = "896m"
+
+    options.compilerArgs += [
+            // disable adding @Generated annotation in the logger impls to make
+            // the logging annotation processor create the same sources each time.
+            "-Aorg.jboss.logging.tools.addGeneratedAnnotation=false"
+    ]
+
+    // stubs argument needs to be passed as an absolute path, JavaCompile uses the Worker API which changes the current
+    // working directory and prevents from using a relative path to locate a project file.
+    // Using a CommandLineArgumentProvider allows build cache hits when the build cache is relocated.
+    def stubs = new CompilerStubsArgumentProvider()
+    stubs.stubsDir = new File( project.rootDir, "checkerstubs" )
+    options.compilerArgumentProviders.add( stubs )
+
+    if ( System.getProperty("APT_DEBUG", "false") == "true" ) {
+        options.forkOptions.jvmArgs?.addAll( [ "-Xdebug", "-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=9099" ] )
+    }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Reproducible Builds
+
+// https://docs.gradle.org/current/userguide/working_with_files.html#sec:reproducible_archives
+// Configure archive tasks to produce reproducible archives:
+tasks.withType( AbstractArchiveTask ).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Configurations and Dependencies
+
+configurations.configureEach {
+    resolutionStrategy.eachDependency {
+        //Force the "byte buddy agent" version to match the Byte Buddy version
+        // we use, as Mockito might pull in a mismatched version transitively
+        if ( requested.group == "net.bytebuddy" && requested.name == "byte-buddy-agent" ) {
+            useVersion( libs.versions.byteBuddy.get() )
+        }
+    }
+}
