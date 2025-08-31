@@ -122,6 +122,9 @@ buildCache {
 
 include(
     "hibernate-core",
+    "hibernate-core-api",
+    "hibernate-core-annotations",
+    "hibernate-core-bytecode",
     "hibernate-testing",
     "hibernate-envers",
     "hibernate-spatial",
@@ -158,6 +161,12 @@ project( ":hibernate-gradle-plugin" ).projectDir = File( rootProject.projectDir,
 project( ":hibernate-maven-plugin" ).projectDir = File( rootProject.projectDir, "tooling/hibernate-maven-plugin" )
 
 project( ":hibernate-ant" ).projectDir = File( rootProject.projectDir, "tooling/hibernate-ant" )
+
+project( ":hibernate-core-api" ).projectDir = File( rootProject.projectDir, "hibernate-core-modules/hibernate-core-api" )
+
+project( ":hibernate-core-annotations" ).projectDir = File( rootProject.projectDir, "hibernate-core-modules/hibernate-core-annotations" )
+
+project( ":hibernate-core-bytecode" ).projectDir = File( rootProject.projectDir, "hibernate-core-modules/hibernate-core-bytecode" )
 
 rootProject.children.forEach { project ->
     assert( project.projectDir.isDirectory )
