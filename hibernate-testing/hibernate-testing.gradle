@@ -26,15 +26,15 @@ dependencies {
     api( libs.test.bytemanBmunit )
 
     api( libs.test.jbossTxSpi ) {
-        isTransitive=false
+        transitive=false
     }
     api( libs.test.jbossJta ) {
-        isTransitive=false
+        transitive=false
     }
 
     api( "javax.money:money-api:1.1" )
     api( "org.javamoney.moneta:moneta-core:1.4.4" ) {
-        isTransitive = false
+        transitive = false
     }
 
     api( libs.test.log4j )

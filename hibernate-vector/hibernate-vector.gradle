@@ -16,9 +16,9 @@ dependencies {
     compileOnly( libs.jdbc.mssql )
 
     testImplementation( projects.hibernateTesting )
-    testImplementation( project( path = ":hibernate-core", configuration = "tests" ) )
+    testImplementation( project( path: ":hibernate-core", configuration: "tests" ) )
 }
 
-tasks.withType<Test> {
+tasks.withType(Test).configureEach {
     include( "**/**" )
 }

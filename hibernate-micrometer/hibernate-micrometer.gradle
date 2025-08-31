@@ -19,7 +19,7 @@ sourceSets {
     // resources inherently exclude sources
     test {
         resources {
-            setSrcDirs( listOf( "src/test/resources") )
+            setSrcDirs( [ "src/test/resources" ] )
         }
     }
 }

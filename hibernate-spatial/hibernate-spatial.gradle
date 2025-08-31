@@ -18,7 +18,7 @@ dependencies {
 
 	testImplementation( projects.hibernateTesting )
 	testImplementation( projects.hibernateAnt )
-	testImplementation( project( path = ":hibernate-core", configuration = "tests" ) )
+	testImplementation( project( path: ":hibernate-core", configuration: "tests" ) )
 	testImplementation( libs.jakarta.validation )
 	testImplementation( libs.jandex )
 	testImplementation( libs.classmate )
@@ -33,12 +33,12 @@ dependencies {
 }
 
 
-sourceSets.test.get().resources {
-	setSrcDirs( listOf( "src/test/resources") )
+sourceSets.test.resources {
+	setSrcDirs( [ "src/test/resources"] )
 }
 
 tasks.test {
-	enabled = listOf(
+	enabled = [
         "h2",
         "pgsql",
         "pgsql_ci",
@@ -52,6 +52,6 @@ tasks.test {
         "oracle_xe_ci",
         "mssql",
         "mssql_ci"
-    ).contains( project.db )
+    ].contains( project.db )
 }
 

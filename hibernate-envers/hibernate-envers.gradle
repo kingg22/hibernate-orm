@@ -31,7 +31,7 @@ dependencies {
     testAnnotationProcessor( projects.hibernateProcessor )
 }
 
-tasks.withType<Test> {
+tasks.withType( Test ).configureEach {
     include( "**/**" )
 }
 
@@ -52,22 +52,22 @@ configurations {
     }
 }
 
-tasks.withType<Test>().forEach { test ->
+tasks.withType( Test ).configureEach { test ->
     if ( project.db == "h2" || project.db == "hsqldb" ) {
         // Parallel test runs when running with in-memory databases
-        test.maxParallelForks = Runtime.getRuntime()?.availableProcessors()?.div( 2 ) ?: 1
+        test.maxParallelForks = Runtime.getRuntime()?.availableProcessors()?.intdiv( 2 ) ?: 1
     }
 }
 
-tasks.named<Jar>( "sourcesJar" ) {
+tasks.named( "sourcesJar", Jar ) {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
-val testJarTask = tasks.register<Jar>( "testJar" ) {
+def testJarTask = tasks.register( "testJar", Jar ) {
     dependsOn( tasks.named( "testClasses" ) )
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     archiveClassifier.set( "test" )
-    from( sourceSets.test.get().output )
+    from( sourceSets.test.output )
 }
 
 artifacts.add( "tests", testJarTask )

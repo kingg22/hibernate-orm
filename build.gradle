@@ -7,7 +7,7 @@ plugins {
 
 	alias( libs.plugins.hibernate.build.version.injection ) apply false
 	id( "org.hibernate.orm.database-service" ) apply false
-	alias( libs.plugins.biz.aQute.bnd ) apply false
+	alias( libs.plugins.biz.AQute.bnd ) apply false
 
     alias( libs.plugins.forbiddenapis ) apply false
 	alias( libs.plugins.spotless ) apply false
@@ -16,9 +16,9 @@ plugins {
 
 	alias( libs.plugins.gradle.nexus.publish ) apply false
 
-	idea
+	id( "idea" )
 	alias( libs.plugins.idea.ext )
-    eclipse
+    id( "eclipse" )
 	alias( libs.plugins.task.tree )
 }
 

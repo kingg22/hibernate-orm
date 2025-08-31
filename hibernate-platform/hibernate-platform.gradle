@@ -64,7 +64,7 @@ dependencies {
     }
 }
 
-val publishingExtension = project.getExtensions().getByType<PublishingExtension>()
-publishingExtension.publications.named<MavenPublication>( "publishedArtifacts" ) {
-    from( components["javaPlatform"] )
+def publishingExtension = project.extensions.getByType( PublishingExtension )
+publishingExtension.publications.named( "publishedArtifacts", MavenPublication ) {
+    from( components.javaPlatform )
 }

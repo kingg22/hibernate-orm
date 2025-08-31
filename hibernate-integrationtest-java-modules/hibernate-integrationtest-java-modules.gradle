@@ -7,7 +7,7 @@ plugins {
 	id( "local.java-module" )
 }
 
-val skipJacoco = if ( project.hasProperty("skipJacoco") ) project.property("skipJacoco").toString().toBoolean() else false
+final Boolean skipJacoco = project.hasProperty("skipJacoco") ? project.property("skipJacoco").toString().toBoolean() : false
 if (!skipJacoco) {
 	plugins.apply("jacoco")
 }
@@ -29,7 +29,7 @@ dependencies {
 	testRuntimeOnly( libs.jakarta.interceptors )
 }
 
-tasks.withType<Test> {
+tasks.withType( Test ).configureEach {
     useJUnitPlatform()
 }
 
