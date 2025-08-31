@@ -6,12 +6,14 @@ package org.hibernate.build.xjc;
 
 import groovy.lang.Closure;
 import jakarta.inject.Inject;
+import org.gradle.api.Action;
 import org.gradle.api.NamedDomainObjectContainer;
 import org.gradle.api.Project;
 import org.gradle.api.Task;
 import org.gradle.api.file.DirectoryProperty;
 import org.gradle.api.provider.Property;
 import org.gradle.api.tasks.OutputDirectory;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * @author Steve Ebersole
@@ -53,4 +55,11 @@ public abstract class XjcExtension {
 		return schemas.configure( closure );
 	}
 
+	@SuppressWarnings( "unused" )
+	public @NotNull NamedDomainObjectContainer<@NotNull SchemaDescriptor> schemas(
+			@NotNull Action<? super @NotNull NamedDomainObjectContainer<@NotNull SchemaDescriptor>> action
+	) {
+		action.execute( schemas );
+		return schemas;
+	}
 }
