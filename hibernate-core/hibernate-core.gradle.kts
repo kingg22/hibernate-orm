@@ -114,6 +114,22 @@ tasks.named<Jar>( "jar" ) {
     )
 }
 
+tasks.withType<Javadoc>().configureEach {
+    val submodules = listOf(
+        project(":hibernate-core-api"),
+        project(":hibernate-core-annotations"),
+        project(":hibernate-core-bytecode"),
+        project(":hibernate-core-internal"),
+        project(":hibernate-core-service"),
+    )
+
+    // add submodules to souce
+    source( submodules.flatMap { it.sourceSets.main.get().allJava.srcDirs } )
+
+    // add classpath of submodules
+    classpath += files( submodules.map { it.sourceSets.main.get().compileClasspath } )
+}
+
 sourceSets {
     named( "test" ) {
         resources {
