@@ -125,6 +125,7 @@ include(
     "hibernate-core-api",
     "hibernate-core-annotations",
     "hibernate-core-bytecode",
+    "hibernate-core-internal",
     "hibernate-testing",
     "hibernate-envers",
     "hibernate-spatial",
@@ -167,6 +168,8 @@ project( ":hibernate-core-api" ).projectDir = File( rootProject.projectDir, "hib
 project( ":hibernate-core-annotations" ).projectDir = File( rootProject.projectDir, "hibernate-core-modules/hibernate-core-annotations" )
 
 project( ":hibernate-core-bytecode" ).projectDir = File( rootProject.projectDir, "hibernate-core-modules/hibernate-core-bytecode" )
+
+project( ":hibernate-core-internal" ).projectDir = File( rootProject.projectDir, "hibernate-core-modules/hibernate-core-internal" )
 
 rootProject.children.forEach { project ->
     assert( project.projectDir.isDirectory )
