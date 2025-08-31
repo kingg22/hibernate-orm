@@ -5,12 +5,11 @@
 package org.hibernate.internal.util.collections;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.hibernate.engine.spi.InstanceIdentity;
 
 import java.util.ConcurrentModificationException;
 
 /**
- * Utility collection that takes advantage of {@link InstanceIdentity}'s identifier to store objects.
+ * Utility collection that takes advantage of {@link org.hibernate.engine.spi.InstanceIdentity}'s identifier to store objects.
  * The store is based on {@link AbstractPagedArray} and it stores element using their instance-id
  * as index.
  * <p>
